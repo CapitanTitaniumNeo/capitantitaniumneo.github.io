@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#0b0f19">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="C and T Titanium - Official Support and Feedback Portal for Mobile and Web Applications.">
-  <title>C and T Titanium | Official Support Portal</title>
+  <meta name="description" content="Captain Titanium - Official Support Portal (Captain Titanium Neo)">
+  <title>Captain Titanium | Official Support Portal</title>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230b0f19' stroke='%2300e5ff' stroke-width='6'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%2300e5ff' font-family='sans-serif' font-weight='900' font-size='34'%3EC%26amp;T%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230b0f19' stroke='%2300e5ff' stroke-width='6'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%2300e5ff' font-family='sans-serif' font-weight='900' font-size='38'%3ECT%3C/text%3E%3C/svg%3E">
 
   <style>
     :root {
       --bg-main: #0b0f19;
-      --bg-card: rgba(19, 27, 46, 0.92);
+      --bg-card: rgba(19, 27, 46, 0.94);
       --border-color: #1f2d4a;
       --accent: #00e5ff;
       --accent-glow: rgba(0, 229, 255, 0.32);
@@ -32,21 +32,27 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      width: 100vw;
+      width: 100dvw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      overscroll-behavior: none;
       background-color: var(--bg-main);
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 50% 100%, rgba(19, 27, 46, 0.9) 0%, transparent 70%);
       color: var(--text-primary);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      padding: max(8px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
     }
 
     .container {
@@ -54,55 +60,57 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-color);
-      border-radius: 22px;
-      max-width: 480px;
+      border-radius: 20px;
       width: 100%;
-      padding: clamp(26px, 5vw, 36px) clamp(18px, 5vw, 30px);
+      max-width: 460px;
+      max-height: 100%;
+      padding: clamp(12px, 2.2vh, 26px) clamp(14px, 4vw, 26px);
       text-align: center;
-      box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.65),
-        0 0 1px rgba(0, 229, 255, 0.2);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 1px rgba(0, 229, 255, 0.2);
       position: relative;
-      animation: cardEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: clamp(6px, 1.2vh, 14px);
     }
 
-    @keyframes cardEnter {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Селектор за всички световни езици горе вдясно */
     .lang-bar {
       position: absolute;
-      top: 16px;
-      inset-inline-end: 16px;
+      top: clamp(10px, 1.8vh, 16px);
+      inset-inline-end: clamp(10px, 2.5vw, 16px);
+      z-index: 10;
     }
 
     .lang-select {
-      background-color: rgba(11, 15, 25, 0.9);
+      background-color: rgba(11, 15, 25, 0.92);
       color: var(--text-primary);
       border: 1px solid var(--border-color);
-      border-radius: 9px;
-      padding: 5px 8px;
-      font-size: 0.76rem;
+      border-radius: 8px;
+      padding: 4px 7px;
+      font-size: 0.74rem;
       font-weight: 600;
-      max-width: 135px;
+      max-width: 128px;
       outline: none;
       cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .lang-select:hover,
     .lang-select:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
     }
 
-    /* Кръгло цифрово лого C & T Titanium */
+    .brand-pane {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Кръгло цифрово лого Captain Titanium */
     .logo-circle {
-      width: 106px;
-      height: 106px;
-      margin: 6px auto 14px;
+      width: clamp(68px, 11vh, 98px);
+      height: clamp(68px, 11vh, 98px);
+      margin: 0 auto clamp(6px, 1vh, 12px);
       border-radius: 50%;
       background: radial-gradient(circle at 50% 35%, #1a2744 0%, #090d16 100%);
       border: 2px solid var(--accent);
@@ -110,41 +118,41 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      box-shadow: 
-        0 0 26px var(--accent-glow),
-        inset 0 0 18px rgba(0, 229, 255, 0.22);
+      box-shadow: 0 0 22px var(--accent-glow), inset 0 0 16px rgba(0, 229, 255, 0.22);
+      flex-shrink: 0;
     }
 
     .logo-circle::before {
       content: "";
       position: absolute;
-      inset: 5px;
+      inset: 4px;
       border-radius: 50%;
       border: 1px dashed rgba(0, 229, 255, 0.45);
       pointer-events: none;
     }
 
     .logo-circle svg {
-      width: 84px;
-      height: 84px;
+      width: 82%;
+      height: 82%;
     }
 
     .dev-brand {
-      font-size: clamp(1.35rem, 4.5vw, 1.6rem);
+      font-size: clamp(1.2rem, 2.6vh, 1.55rem);
       font-weight: 800;
       letter-spacing: 0.6px;
       background: linear-gradient(90deg, #ffffff 0%, var(--accent) 55%, var(--titanium-mid) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 3px;
+      line-height: 1.2;
     }
 
     .portal-subtitle {
-      font-size: 0.78rem;
+      font-size: clamp(0.66rem, 1.3vh, 0.76rem);
       color: var(--text-secondary);
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
+      letter-spacing: 1.4px;
+      margin-top: 2px;
+      margin-bottom: clamp(6px, 1vh, 10px);
       font-weight: 600;
     }
 
@@ -152,19 +160,18 @@
     .airport-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       background: linear-gradient(135deg, rgba(0, 229, 255, 0.09) 0%, rgba(11, 15, 25, 0.85) 100%);
       border: 1px solid rgba(0, 229, 255, 0.3);
-      border-radius: 14px;
-      padding: 6px 14px;
-      margin-bottom: 10px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+      border-radius: 12px;
+      padding: clamp(4px, 0.8vh, 7px) 12px;
+      margin-bottom: clamp(6px, 1vh, 10px);
       max-width: 100%;
     }
 
     .plane-icon-box {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: radial-gradient(circle at 50% 30%, #1e2d4f 0%, #0b0f19 100%);
       border: 1.5px solid var(--accent);
@@ -173,12 +180,11 @@
       align-items: center;
       position: relative;
       flex-shrink: 0;
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
     }
 
     .plane-icon-box svg {
-      width: 19px;
-      height: 19px;
+      width: 17px;
+      height: 17px;
       stroke: var(--accent);
       fill: none;
       stroke-width: 1.9;
@@ -190,48 +196,48 @@
       position: absolute;
       bottom: -3px;
       right: -4px;
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       line-height: 1;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.85));
     }
 
     .airport-info {
       text-align: start;
-      line-height: 1.25;
+      line-height: 1.2;
+      overflow: hidden;
     }
 
     .airport-status {
-      font-size: 0.67rem;
+      font-size: 0.63rem;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       font-weight: 600;
       display: block;
     }
 
     .airport-name {
-      font-size: 0.83rem;
+      font-size: clamp(0.74rem, 1.4vh, 0.82rem);
       font-weight: 700;
       color: var(--text-primary);
-      letter-spacing: 0.2px;
-    }
-
-    .status-row {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 240px;
       display: block;
-      margin-bottom: 14px;
     }
 
     .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: rgba(0, 230, 118, 0.09);
       color: var(--success);
       border: 1px solid rgba(0, 230, 118, 0.25);
-      padding: 4px 12px;
+      padding: 3px 11px;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 500;
+      margin-bottom: clamp(4px, 0.8vh, 8px);
     }
 
     .status-dot {
@@ -241,32 +247,33 @@
       border-radius: 50%;
       box-shadow: 0 0 8px var(--success);
       flex-shrink: 0;
-      animation: pulseDot 2.2s infinite ease-in-out;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(0.9); }
     }
 
     p.description {
       color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+      font-size: clamp(0.76rem, 1.45vh, 0.88rem);
+      line-height: 1.35;
+    }
+
+    .form-pane {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
     }
 
     .contact-form {
       text-align: start;
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: clamp(6px, 1.1vh, 11px);
     }
 
     .contact-form label {
-      font-size: 0.82rem;
+      font-size: clamp(0.74rem, 1.35vh, 0.8rem);
       color: var(--text-secondary);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       font-weight: 500;
     }
 
@@ -275,107 +282,88 @@
       width: 100%;
       background-color: var(--bg-main);
       border: 1px solid var(--border-color);
-      border-radius: 11px;
-      padding: 11px 14px;
+      border-radius: 10px;
+      padding: clamp(7px, 1.1vh, 10px) 12px;
       color: var(--text-primary);
       font-size: 16px;
       font-family: inherit;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s;
     }
 
     .contact-form input:-webkit-autofill,
-    .contact-form input:-webkit-autofill:hover,
-    .contact-form input:-webkit-autofill:focus,
     .contact-form textarea:-webkit-autofill {
       -webkit-text-fill-color: var(--text-primary);
       -webkit-box-shadow: 0 0 0px 1000px var(--bg-main) inset;
-      transition: background-color 5000s ease-in-out 0s;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.14);
     }
 
     .contact-form textarea {
-      resize: vertical;
-      min-height: 95px;
+      resize: none;
+      height: clamp(52px, 8.5vh, 84px);
     }
 
-    /* Секция за тежкия плаващ анти-бот код (Dynamic Floating Cyber CAPTCHA) */
+    /* Плаващ анти-бот код */
     .captcha-box {
       background: rgba(9, 13, 22, 0.9);
       border: 1px solid var(--border-color);
-      border-radius: 13px;
-      padding: 12px;
+      border-radius: 11px;
+      padding: clamp(6px, 1vh, 10px);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: clamp(5px, 0.8vh, 8px);
     }
 
     .captcha-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--accent);
       font-weight: 600;
-      letter-spacing: 0.4px;
     }
 
     .captcha-canvas-row {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       align-items: center;
     }
 
     #captchaCanvas {
       flex: 1;
-      height: 58px;
+      height: clamp(38px, 5.8vh, 50px);
       width: 100%;
       background: #060911;
       border: 1px solid rgba(0, 229, 255, 0.35);
-      border-radius: 9px;
+      border-radius: 8px;
       display: block;
       user-select: none;
-      -webkit-user-select: none;
-      box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.85);
     }
 
     .btn-refresh-captcha {
-      width: 46px;
-      height: 58px;
+      width: 40px;
+      height: clamp(38px, 5.8vh, 50px);
       background-color: #0e1628;
       border: 1px solid var(--border-color);
-      border-radius: 9px;
+      border-radius: 8px;
       color: var(--accent);
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-shrink: 0;
-      transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
-    }
-
-    .btn-refresh-captcha:hover {
-      border-color: var(--accent);
-      background-color: #16223d;
-    }
-
-    .btn-refresh-captcha:active {
-      transform: scale(0.95);
     }
 
     .btn-refresh-captcha svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       stroke: currentColor;
       fill: none;
       stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
 
     .captcha-input-wrap {
@@ -384,30 +372,28 @@
 
     #captchaInput {
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       font-weight: 800;
       text-align: center;
       font-family: "Courier New", Consolas, monospace;
-      padding-right: 38px;
+      padding: clamp(6px, 0.9vh, 9px) 32px;
     }
 
     #captchaInput.valid {
       border-color: var(--success);
-      box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.15);
       color: var(--success);
     }
 
     #captchaInput.invalid {
       border-color: var(--danger);
-      box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.15);
     }
 
     .captcha-status-icon {
       position: absolute;
-      inset-inline-end: 12px;
+      inset-inline-end: 10px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1rem;
+      font-size: 0.9rem;
       pointer-events: none;
     }
 
@@ -415,331 +401,363 @@
       background: linear-gradient(180deg, #18ffff 0%, var(--accent) 100%);
       color: #050811;
       border: none;
-      border-radius: 11px;
-      padding: 14px;
-      font-size: 0.96rem;
+      border-radius: 10px;
+      padding: clamp(9px, 1.4vh, 13px);
+      font-size: 0.92rem;
       font-weight: 700;
       cursor: pointer;
-      transition: filter 0.2s, transform 0.1s, box-shadow 0.2s, opacity 0.2s;
-      margin-top: 2px;
-      box-shadow: 0 4px 16px rgba(0, 229, 255, 0.25);
-    }
-
-    .btn-submit:hover:not(:disabled) {
-      filter: brightness(1.06);
-      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35);
-    }
-
-    .btn-submit:active:not(:disabled) {
-      transform: scale(0.99);
+      box-shadow: 0 4px 14px rgba(0, 229, 255, 0.25);
     }
 
     .btn-submit:disabled {
-      opacity: 0.45;
+      opacity: 0.42;
       cursor: not-allowed;
       box-shadow: none;
     }
 
     .status-msg {
       display: none;
-      margin-top: 6px;
-      padding: 11px 14px;
-      border-radius: 10px;
-      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
       text-align: center;
     }
 
     .status-msg.success {
       display: block;
-      background: rgba(0, 230, 118, 0.11);
+      background: rgba(0, 230, 118, 0.12);
       color: var(--success);
       border: 1px solid rgba(0, 230, 118, 0.3);
     }
 
     .status-msg.error {
       display: block;
-      background: rgba(255, 82, 82, 0.11);
+      background: rgba(255, 82, 82, 0.12);
       color: #ff6b6b;
       border: 1px solid rgba(255, 82, 82, 0.3);
     }
 
-    .divider {
-      margin: 18px 0 14px;
-      border: none;
+    .footer-bar {
       border-top: 1px solid var(--border-color);
+      padding-top: clamp(6px, 1vh, 10px);
+      margin-top: 2px;
     }
 
     .github-link {
       display: inline-block;
       color: var(--text-secondary);
-      font-size: 0.83rem;
+      font-size: 0.76rem;
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     .github-link:hover {
       color: var(--accent);
+    }
+
+    /* Автоматичен хоризонтален режим (Landscape) без никакъв скрол */
+    @media (orientation: landscape) and (max-height: 640px), (min-width: 760px) and (max-height: 760px) {
+      .container {
+        max-width: 860px;
+        flex-direction: row;
+        align-items: center;
+        gap: clamp(16px, 3vw, 28px);
+        padding: clamp(12px, 2.5vh, 22px) clamp(18px, 3vw, 28px);
+      }
+
+      .brand-pane {
+        flex: 0 0 42%;
+        max-width: 42%;
+        border-inline-end: 1px solid var(--border-color);
+        padding-inline-end: clamp(12px, 2vw, 22px);
+      }
+
+      .form-pane {
+        flex: 1;
+      }
+
+      .logo-circle {
+        width: clamp(58px, 14vh, 84px);
+        height: clamp(58px, 14vh, 84px);
+      }
+
+      .contact-form textarea {
+        height: clamp(42px, 10vh, 64px);
+      }
     }
   </style>
 </head>
 <body>
 
   <main class="container">
-    <!-- Селектор за всички световни езици -->
     <div class="lang-bar">
       <select id="langSelect" class="lang-select" aria-label="Language"></select>
     </div>
 
-    <!-- Кръгло дигитално лого C & T Titanium -->
-    <div class="logo-circle" aria-hidden="true">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="cyberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00e5ff" />
-            <stop offset="100%" stop-color="#cbd5e1" />
-          </linearGradient>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-        </defs>
+    <!-- Лява/Горна секция: Лого Captain Titanium + Летище -->
+    <section class="brand-pane">
+      <div class="logo-circle" aria-hidden="true">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cyberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00e5ff" />
+              <stop offset="100%" stop-color="#cbd5e1" />
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
 
-        <path d="M 28 24 A 34 34 0 0 1 72 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
-        <circle cx="35" cy="28" r="2.2" fill="#00e5ff" filter="url(#glow)" />
-        <circle cx="65" cy="28" r="2.2" fill="#00e5ff" filter="url(#glow)" />
+          <path d="M 26 24 A 34 34 0 0 1 74 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+          <circle cx="34" cy="28" r="2.3" fill="#00e5ff" filter="url(#glow)" />
+          <circle cx="66" cy="28" r="2.3" fill="#00e5ff" filter="url(#glow)" />
 
-        <text x="50" y="57" text-anchor="middle" fill="url(#cyberGlow)" filter="url(#glow)" font-family="Segoe UI, Roboto, monospace" font-weight="800" font-size="25" letter-spacing="1">
-          C&amp;T
-        </text>
+          <text x="50" y="56" text-anchor="middle" fill="url(#cyberGlow)" filter="url(#glow)" font-family="Segoe UI, Roboto, monospace" font-weight="900" font-size="27" letter-spacing="1.5">
+            CT
+          </text>
 
-        <text x="50" y="73" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Roboto, sans-serif" font-weight="700" font-size="8.5" letter-spacing="2.5">
-          TITANIUM
-        </text>
-      </svg>
-    </div>
+          <text x="50" y="69" text-anchor="middle" fill="#00e5ff" font-family="Segoe UI, Roboto, sans-serif" font-weight="800" font-size="6.8" letter-spacing="2.2">
+            CAPTAIN
+          </text>
 
-    <h1 class="dev-brand">C and T Titanium</h1>
-    <div class="portal-subtitle" id="t-subtitle">Official Support Portal</div>
-
-    <!-- Закачка с националния флаг, кацащо самолетче и най-голямото летище в държавата носител на езика -->
-    <div class="airport-badge" id="airportBadge">
-      <div class="plane-icon-box" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M2 20h20" />
-          <path d="M3.5 11.5L10 14l4.5-6.5 2.5.8-2 6.7 4.5 1.2c.8.2 1.5-.3 1.5-1.1v-1.6l-3-1" />
+          <text x="50" y="79" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Roboto, sans-serif" font-weight="700" font-size="6.8" letter-spacing="2">
+            TITANIUM
+          </text>
         </svg>
-        <span class="airport-flag" id="t-flag">🇺🇸</span>
       </div>
-      <div class="airport-info">
-        <span class="airport-status" id="t-landing-label">🛬 Landing Terminal</span>
-        <span class="airport-name" id="t-airport-name">Hartsfield-Jackson Atlanta (ATL)</span>
-      </div>
-    </div>
 
-    <div class="status-row">
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span id="t-badge">Secure System Connection</span>
-      </div>
-    </div>
+      <h1 class="dev-brand">Captain Titanium</h1>
+      <div class="portal-subtitle" id="t-subtitle">Captain Titanium Neo Portal</div>
 
-    <p class="description" id="t-desc">
-      Unified support and feedback portal for our mobile and web applications.
-    </p>
-
-    <form class="contact-form" id="contactForm" novalidate>
-      <input type="text" name="_honey" id="honeyField" style="display:none" tabindex="-1" autocomplete="off">
-      <input type="hidden" name="_subject" value="New message from C and T Titanium Portal">
-      <input type="hidden" name="_captcha" value="false">
-
-      <div>
-        <label for="sender" id="t-email-label">Email for reply (optional)</label>
-        <input type="email" id="sender" name="email" placeholder="example@mail.com" autocomplete="email">
+      <div class="airport-badge" id="airportBadge">
+        <div class="plane-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 20h20" />
+            <path d="M3.5 11.5L10 14l4.5-6.5 2.5.8-2 6.7 4.5 1.2c.8.2 1.5-.3 1.5-1.1v-1.6l-3-1" />
+          </svg>
+          <span class="airport-flag" id="t-flag"></span>
+        </div>
+        <div class="airport-info">
+          <span class="airport-status" id="t-landing-label">Landing Terminal</span>
+          <span class="airport-name" id="t-airport-name">Hartsfield-Jackson Atlanta (ATL)</span>
+        </div>
       </div>
 
       <div>
-        <label for="message" id="t-msg-label">Message</label>
-        <textarea id="message" name="message" placeholder="Write your inquiry or message here..." required></textarea>
-      </div>
-
-      <!-- Тежък плаващ код (Anti-Bot Dynamic Floating Wave CAPTCHA) -->
-      <div class="captcha-box">
-        <div class="captcha-header">
-          <span id="t-captcha-title">🛡️ Security Verification (Floating Code)</span>
-          <span id="captchaTimer">60s</span>
-        </div>
-
-        <div class="captcha-canvas-row">
-          <canvas id="captchaCanvas" width="280" height="58" aria-label="Floating security code"></canvas>
-          <button type="button" class="btn-refresh-captcha" id="refreshCaptchaBtn" title="New Code" aria-label="Generate new security code">
-            <svg viewBox="0 0 24 24">
-              <path d="M23 4v6h-6" />
-              <path d="M1 20v-6h6" />
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="captcha-input-wrap">
-          <input type="text" id="captchaInput" maxlength="6" placeholder="ENTER 6-CHAR CODE" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" required>
-          <span class="captcha-status-icon" id="captchaStatusIcon"></span>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span id="t-badge">Secure System Connection</span>
         </div>
       </div>
 
-      <button type="submit" class="btn-submit" id="submitBtn" disabled>Send Message (OK)</button>
-      <div id="statusMessage" class="status-msg" role="status" aria-live="polite"></div>
-    </form>
+      <p class="description" id="t-desc">
+        Unified support and feedback portal for our mobile and web applications.
+      </p>
+    </section>
 
-    <hr class="divider">
+    <!-- Дясна/Долна секция: Форма и Плаващ анти-бот код -->
+    <section class="form-pane">
+      <form class="contact-form" id="contactForm" novalidate>
+        <input type="text" name="_honey" id="honeyField" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="New message from Captain Titanium Neo Portal">
+        <input type="hidden" name="_captcha" value="false">
 
-    <a class="github-link" id="t-github" href="https://github.com/cntitaniumneo/cntitaniumneo.github.io/issues" target="_blank" rel="noopener">
-      Or open GitHub Support (C and T Titanium) ➔
-    </a>
+        <div>
+          <label for="sender" id="t-email-label">Email for reply (optional)</label>
+          <input type="email" id="sender" name="email" placeholder="example@mail.com" autocomplete="email">
+        </div>
+
+        <div>
+          <label for="message" id="t-msg-label">Message</label>
+          <textarea id="message" name="message" placeholder="Write your inquiry or message here..." required></textarea>
+        </div>
+
+        <div class="captcha-box">
+          <div class="captcha-header">
+            <span id="t-captcha-title">Anti-Bot Floating Code</span>
+            <span id="captchaTimer">60s</span>
+          </div>
+
+          <div class="captcha-canvas-row">
+            <canvas id="captchaCanvas" width="260" height="48" aria-label="Floating security code"></canvas>
+            <button type="button" class="btn-refresh-captcha" id="refreshCaptchaBtn" title="New Code" aria-label="Generate new security code">
+              <svg viewBox="0 0 24 24">
+                <path d="M23 4v6h-6" />
+                <path d="M1 20v-6h6" />
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="captcha-input-wrap">
+            <input type="text" id="captchaInput" maxlength="6" placeholder="ENTER 6-CHAR CODE" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" required>
+            <span class="captcha-status-icon" id="captchaStatusIcon"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>Send Message (OK)</button>
+        <div id="statusMessage" class="status-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="footer-bar">
+        <a class="github-link" id="t-github" href="https://github.com/CapitanTitaniumNeo/capitantitaniumneo.github.io/issues" target="_blank" rel="noopener">
+          GitHub: Captain Titanium Neo
+        </a>
+      </div>
+    </section>
   </main>
 
   <script>
-    // Пълна световна база: [Знаме на държавата носител, Родно име на езика, Най-голямо международно летище с IATA код]
+    // Преобразува 2-буквен код на държава в емоджи знаме автоматично (без скрити символи в кода)
+    function getFlagEmoji(cc) {
+      if (!cc || cc.length !== 2) return "\uD83C\uDF10";
+      return String.fromCodePoint(
+        ...cc.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0))
+      );
+    }
+
+    // Пълна световна база: [ISO код на държавата носител, Име на езика, Най-голямо международно летище (IATA)]
     const worldAirports = {
-      en: ["🇺🇸", "English (USA)", "Hartsfield-Jackson Atlanta (ATL)"],
-      bg: ["🇧🇬", "Български", "Летище „Васил Левски“ София (SOF)"],
-      de: ["🇩🇪", "Deutsch", "Flughafen Frankfurt (FRA)"],
-      fr: ["🇫🇷", "Français", "Paris-Charles de Gaulle (CDG)"],
-      es: ["🇪🇸", "Español", "Adolfo Suárez Madrid-Barajas (MAD)"],
-      it: ["🇮🇹", "Italiano", "Roma-Fiumicino Leonardo da Vinci (FCO)"],
-      pt: ["🇵🇹", "Português", "Humberto Delgado Lisboa (LIS)"],
-      ru: ["🇷🇺", "Русский", "Москва Шереметьево (SVO)"],
-      uk: ["🇺🇦", "Українська", "Київ Бориспіль (KBP)"],
-      be: ["🇧🇾", "Беларуская", "Нацыянальны аэрапорт Мінск (MSQ)"],
-      pl: ["🇵🇱", "Polski", "Lotnisko Chopina w Warszawie (WAW)"],
-      cs: ["🇨🇿", "Čeština", "Letiště Václava Havla Praha (PRG)"],
-      sk: ["🇸🇰", "Slovenčina", "Letisko M. R. Štefánika Bratislava (BTS)"],
-      hu: ["🇭🇺", "Magyar", "Budapest Liszt Ferenc (BUD)"],
-      ro: ["🇷🇴", "Română", "București Henri Coandă (OTP)"],
-      el: ["🇬🇷", "Ελληνικά", "Αθήνα Ελ. Βενιζέλος (ATH)"],
-      tr: ["🇹🇷", "Türkçe", "İstanbul Havalimanı (IST)"],
-      sr: ["🇷🇸", "Српски", "Аеродром Никола Тесла Београд (BEG)"],
-      mk: ["🇲🇰", "Македонски", "Меѓународен Аеродром Скопје (SKP)"],
-      hr: ["🇭🇷", "Hrvatski", "Zračna luka Franjo Tuđman Zagreb (ZAG)"],
-      bs: ["🇧🇦", "Bosanski", "Međunarodni aerodrom Sarajevo (SJJ)"],
-      sl: ["🇸🇮", "Slovenščina", "Letališče Jožeta Pučnika Ljubljana (LJU)"],
-      sq: ["🇦🇱", "Shqip", "Aeroporti Nënë Tereza Tiranë (TIA)"],
-      nl: ["🇳🇱", "Nederlands", "Amsterdam Airport Schiphol (AMS)"],
-      sv: ["🇸🇪", "Svenska", "Stockholm Arlanda Airport (ARN)"],
-      no: ["🇳🇴", "Norsk", "Oslo lufthavn Gardermoen (OSL)"],
-      da: ["🇩🇰", "Dansk", "Københavns Lufthavn Kastrup (CPH)"],
-      fi: ["🇫🇮", "Suomi", "Helsinki-Vantaan lentoasema (HEL)"],
-      is: ["🇮🇸", "Íslenska", "Keflavíkurflugvöllur (KEF)"],
-      et: ["🇪🇪", "Eesti", "Lennart Meri Tallinna lennujaam (TLL)"],
-      lv: ["🇱🇻", "Latviešu", "Starptautiskā lidosta Rīga (RIX)"],
-      lt: ["🇱🇹", "Lietuvių", "Vilniaus oro uostas (VNO)"],
-      ga: ["🇮🇪", "Gaeilge", "Aerfort Bhaile Átha Cliath Dublin (DUB)"],
-      mt: ["🇲🇹", "Malti", "Ajruport Internazzjonali ta' Malta (MLA)"],
-      lb: ["🇱🇺", "Lëtzebuergesch", "Aéroport de Luxembourg-Findel (LUX)"],
-      ca: ["🇦🇩", "Català", "Aeroport Andorra-La Seu d'Urgell (LEU)"],
-      cy: ["🏴󠁧󠁢󠁷󠁬󠁳󠁿", "Cymraeg", "Maes Awyr Caerdydd Cardiff (CWL)"],
-      gd: ["🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Gàidhlig", "Port-adhair Dhùn Èideann Edinburgh (EDI)"],
-      eu: ["🇪🇸", "Euskara", "Bilboko Aireportua Bilbao (BIO)"],
-      gl: ["🇪🇸", "Galego", "Aeroporto de Santiago-Rosalía de Castro (SCQ)"],
-      hy: ["🇦🇲", "Հայերեն", "Զվարթնոց միջազգային օդանավակայան Yerevan (EVN)"],
-      ka: ["🇬🇪", "ქართული", "თბილისის საერთაშორისო აეროპორტი Tbilisi (TBS)"],
-      az: ["🇦🇿", "Azərbaycan", "Heydər Əliyev Beynəlxalq Hava Limanı Baku (GYD)"],
-      kk: ["🇰🇿", "Қазақша", "Алматы халықаралық әуежайы Almaty (ALA)"],
-      uz: ["🇺🇿", "Oʻzbekcha", "Toshkent Xalqaro Aeroporti Tashkent (TAS)"],
-      ky: ["🇰🇬", "Кыргызча", "Манас эл аралык аэропорту Bishkek (FRU)"],
-      tg: ["🇹🇯", "Тоҷикӣ", "Фурудгоҳи байналмилалии Душанбе Dushanbe (DYU)"],
-      tk: ["🇹🇲", "Türkmençe", "Aşgabat Halkara Howa Menzili Ashgabat (ASB)"],
-      mn: ["🇲🇳", "Монгол", "Чингис хаан олон улсын нисэх буудал Ulaanbaatar (UBN)"],
-      ko: ["🇰🇷", "한국어", "인천국제공항 Incheon International (ICN)"],
-      ja: ["🇯🇵", "日本語", "東京羽田空港 Tokyo Haneda (HND)"],
-      zh: ["🇨🇳", "中文", "北京首都国际机场 Beijing Capital (PEK)"],
-      ar: ["🇸🇦", "العربية", "مطار الملك عبد العزيز الدولي Jeddah (JED)"],
-      he: ["🇮🇱", "עברית", "נמל התעופה בן-גוריון Tel Aviv Ben Gurion (TLV)"],
-      fa: ["🇮🇷", "فارسی", "فرودگاه بین‌المللی امام خمینی Tehran (IKA)"],
-      ps: ["🇦🇫", "پښتو", "د کابل نړیوال هوايي ډګر Kabul International (KBL)"],
-      ku: ["🇮🇶", "Kurdî", "Balafirgeha Navneteweyî ya Hewlêrê Erbil (EBL)"],
-      ur: ["🇵🇰", "اردو", "جناح انٹرنیشنل ایئرپورٹ Karachi Jinnah (KHI)"],
-      hi: ["🇮🇳", "हिन्दी", "इंदिरा गांधी अंतर्राष्ट्रीय हवाई अड्डा New Delhi (DEL)"],
-      bn: ["🇧🇩", "বাংলা", "হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর Dhaka (DAC)"],
-      ne: ["🇳🇵", "नेपाली", "त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल Kathmandu (KTM)"],
-      si: ["🇱🇰", "සිංහල", "බණ්ඩාරනායක ජාත්‍යන්තර ගුවන්තොටුපළ Colombo (CMB)"],
-      dv: ["🇲🇻", "ދިވެހި", "Velana International Airport Malé (MLE)"],
-      dz: ["🇧🇹", "རྫོང་ཁ", "Paro International Airport (PBH)"],
-      my: ["🇲🇲", "မြန်မာ", "ရန်ကုန်အပြည်ပြည်ဆိုင်ရာလေဆိပ် Yangon (RGN)"],
-      th: ["🇹🇭", "ไทย", "ท่าอากาศยานสุวรรณภูมิ Bangkok Suvarnabhumi (BKK)"],
-      lo: ["🇱🇦", "ລາວ", "ສະໜາມບິນສາກົນວັດໄຕ Vientiane Wattay (VTE)"],
-      km: ["🇰🇭", "ខ្មែរ", "អាកាសយានដ្ឋានអន្តរជាតិភ្នំពេញ Phnom Penh (PNH)"],
-      vi: ["🇻🇳", "Tiếng Việt", "Sân bay Quốc tế Tân Sơn Nhất Ho Chi Minh (SGN)"],
-      ms: ["🇲🇾", "Bahasa Melayu", "Lapangan Terbang Antarabangsa Kuala Lumpur (KUL)"],
-      id: ["🇮🇩", "Bahasa Indonesia", "Bandara Internasional Soekarno-Hatta Jakarta (CGK)"],
-      tl: ["🇵🇭", "Filipino", "Ninoy Aquino International Manila (MNL)"],
-      tet: ["🇹🇱", "Tetun", "Aeroportu Internasionál Prezidente Nicolau Lobato Dili (DIL)"],
-      ta: ["🇸🇬", "தமிழ்", "Singapore Changi Airport (SIN)"],
-      pa: ["🇮🇳", "ਪੰਜਾਬੀ", "Sri Guru Ram Dass Jee Amritsar (ATQ)"],
-      gu: ["🇮🇳", "ગુજરાતી", "Sardar Vallabhbhai Patel Ahmedabad (AMD)"],
-      mr: ["🇮🇳", "मराठी", "Chhatrapati Shivaji Maharaj Mumbai (BOM)"],
-      te: ["🇮🇳", "తెలుగు", "Rajiv Gandhi International Hyderabad (HYD)"],
-      kn: ["🇮🇳", "ಕನ್ನಡ", "Kempegowda International Bengaluru (BLR)"],
-      ml: ["🇮🇳", "മലയാളം", "Cochin International Airport Kochi (COK)"],
-      sw: ["🇰🇪", "Kiswahili", "Jomo Kenyatta International Nairobi (NBO)"],
-      am: ["🇪🇹", "አማርኛ", "Addis Ababa Bole International (ADD)"],
-      ti: ["🇪🇷", "ትግርኛ", "Asmara International Airport (ASM)"],
-      so: ["🇸🇴", "Soomaali", "Aden Adde International Mogadishu (MGQ)"],
-      af: ["🇿🇦", "Afrikaans", "O.R. Tambo International Johannesburg (JNB)"],
-      zu: ["🇿🇦", "isiZulu", "King Shaka International Durban (DUR)"],
-      xh: ["🇿🇦", "isiXhosa", "Cape Town International Airport (CPT)"],
-      st: ["🇱🇸", "Sesotho", "Moshoeshoe I International Maseru (MSU)"],
-      tn: ["🇧🇼", "Setswana", "Sir Seretse Khama International Gaborone (GBE)"],
-      sn: ["🇿🇼", "ChiShona", "Robert Gabriel Mugabe International Harare (HRE)"],
-      ny: ["🇲🇼", "Chichewa", "Kamuzu International Airport Lilongwe (LLW)"],
-      rw: ["🇷🇼", "Kinyarwanda", "Kigali International Airport (KGL)"],
-      rn: ["🇧🇮", "Ikirundi", "Melchior Ndadaye International Bujumbura (BJM)"],
-      lg: ["🇺🇬", "Luganda", "Entebbe International Airport (EBB)"],
-      ln: ["🇨🇩", "Lingála", "Aéroport International de N'djili Kinshasa (FIH)"],
-      kg: ["🇨🇬", "Kikongo", "Aéroport Maya-Maya Brazzaville (BZV)"],
-      mg: ["🇲🇬", "Malagasy", "Ivato International Airport Antananarivo (TNR)"],
-      yo: ["🇳🇬", "Yorùbá", "Murtala Muhammed International Lagos (LOS)"],
-      ha: ["🇳🇬", "Hausa", "Nnamdi Azikiwe International Abuja (ABV)"],
-      ig: ["🇳🇬", "Igbo", "Akanu Ibiam International Enugu (ENU)"],
-      ak: ["🇬🇭", "Akan", "Kotoka International Airport Accra (ACC)"],
-      wo: ["🇸🇳", "Wolof", "Blaise Diagne International Dakar (DSS)"],
-      bm: ["🇲🇱", "Bamanankan", "Modibo Keita International Bamako (BKO)"],
-      ff: ["🇬🇳", "Fulfulde", "Ahmed Sékou Touré International Conakry (CKY)"],
-      ber: ["🇲🇦", "Tamaziɣt", "Aéroport Mohammed V de Casablanca (CMN)"],
-      mi: ["🇳🇿", "Māori", "Auckland Airport Te Papa Waka Rererangi (AKL)"],
-      sm: ["🇼🇸", "Gagana Sāmoa", "Faleolo International Airport Apia (APW)"],
-      to: ["🇹🇴", "Lea Fakatonga", "Fuaʻamotu International Airport (TBU)"],
-      fj: ["🇫🇯", "Vosa Vakaviti", "Nadi International Airport (NAN)"],
-      ty: ["🇵🇫", "Reo Tahiti", "Aéroport International Tahiti Faa'a (PPT)"],
-      bi: ["🇻🇺", "Bislama", "Bauerfield International Port Vila (VLI)"],
-      tpi: ["🇵🇬", "Tok Pisin", "Jacksons International Port Moresby (POM)"],
-      mh: ["🇲🇭", "Kajin M̧ajeļ", "Marshall Islands International Majuro (MAJ)"],
-      ch: ["🇬🇺", "Chamoru", "Antonio B. Won Pat International Guam (GUM)"],
-      haw: ["🇺🇸", "ʻŌlelo Hawaiʻi", "Daniel K. Inouye International Honolulu (HNL)"],
-      ht: ["🇭🇹", "Kreyòl Ayisyen", "Aéroport Toussaint Louverture Port-au-Prince (PAP)"],
-      gn: ["🇵🇾", "Avañe'ẽ (Guaraní)", "Aeropuerto Silvio Pettirossi Asunción (ASU)"],
-      qu: ["🇵🇪", "Runasimi (Quechua)", "Aeropuerto Alejandro Velasco Astete Cusco (CUZ)"],
-      ay: ["🇧🇴", "Aymar aru", "Aeropuerto Internacional El Alto La Paz (LPB)"],
-      kl: ["🇬🇱", "Kalaallisut", "Mittarfik Nuuk Greenland (GOH)"],
-      fo: ["🇫🇴", "Føroyskt", "Vága Floghavn Faroe Islands (FAE)"]
+      en: ["US", "English (USA)", "Hartsfield-Jackson Atlanta (ATL)"],
+      bg: ["BG", "Български", "Летище Васил Левски София (SOF)"],
+      de: ["DE", "Deutsch", "Flughafen Frankfurt (FRA)"],
+      fr: ["FR", "Français", "Paris-Charles de Gaulle (CDG)"],
+      es: ["ES", "Español", "Adolfo Suárez Madrid-Barajas (MAD)"],
+      it: ["IT", "Italiano", "Roma-Fiumicino Leonardo da Vinci (FCO)"],
+      pt: ["PT", "Português", "Humberto Delgado Lisboa (LIS)"],
+      ru: ["RU", "Русский", "Москва Шереметьево (SVO)"],
+      uk: ["UA", "Українська", "Київ Бориспіль (KBP)"],
+      be: ["BY", "Беларуская", "Нацыянальны аэрапорт Мінск (MSQ)"],
+      pl: ["PL", "Polski", "Lotnisko Chopina w Warszawie (WAW)"],
+      cs: ["CZ", "Čeština", "Letiště Václava Havla Praha (PRG)"],
+      sk: ["SK", "Slovenčina", "Letisko M. R. Štefánika Bratislava (BTS)"],
+      hu: ["HU", "Magyar", "Budapest Liszt Ferenc (BUD)"],
+      ro: ["RO", "Română", "București Henri Coandă (OTP)"],
+      el: ["GR", "Ελληνικά", "Αθήνα Ελ. Βενιζέλος (ATH)"],
+      tr: ["TR", "Türkçe", "İstanbul Havalimanı (IST)"],
+      sr: ["RS", "Српски", "Аеродром Никола Тесла Београд (BEG)"],
+      mk: ["MK", "Македонски", "Меѓународен Аеродром Скопје (SKP)"],
+      hr: ["HR", "Hrvatski", "Zračna luka Franjo Tuđman Zagreb (ZAG)"],
+      bs: ["BA", "Bosanski", "Međunarodni aerodrom Sarajevo (SJJ)"],
+      sl: ["SI", "Slovenščina", "Letališče Jožeta Pučnika Ljubljana (LJU)"],
+      sq: ["AL", "Shqip", "Aeroporti Nënë Tereza Tiranë (TIA)"],
+      nl: ["NL", "Nederlands", "Amsterdam Airport Schiphol (AMS)"],
+      sv: ["SE", "Svenska", "Stockholm Arlanda Airport (ARN)"],
+      no: ["NO", "Norsk", "Oslo lufthavn Gardermoen (OSL)"],
+      da: ["DK", "Dansk", "Københavns Lufthavn Kastrup (CPH)"],
+      fi: ["FI", "Suomi", "Helsinki-Vantaan lentoasema (HEL)"],
+      is: ["IS", "Íslenska", "Keflavíkurflugvöllur (KEF)"],
+      et: ["EE", "Eesti", "Lennart Meri Tallinna lennujaam (TLL)"],
+      lv: ["LV", "Latviešu", "Starptautiskā lidosta Rīga (RIX)"],
+      lt: ["LT", "Lietuvių", "Vilniaus oro uostas (VNO)"],
+      ga: ["IE", "Gaeilge", "Aerfort Bhaile Átha Cliath Dublin (DUB)"],
+      mt: ["MT", "Malti", "Ajruport Internazzjonali ta' Malta (MLA)"],
+      lb: ["LU", "Lëtzebuergesch", "Aéroport de Luxembourg-Findel (LUX)"],
+      ca: ["AD", "Català", "Aeroport Andorra-La Seu d'Urgell (LEU)"],
+      cy: ["GB", "Cymraeg", "Maes Awyr Caerdydd Cardiff (CWL)"],
+      gd: ["GB", "Gàidhlig", "Port-adhair Dhùn Èideann Edinburgh (EDI)"],
+      eu: ["ES", "Euskara", "Bilboko Aireportua Bilbao (BIO)"],
+      gl: ["ES", "Galego", "Aeroporto de Santiago (SCQ)"],
+      hy: ["AM", "Հայերեն", "Zvartnots International Yerevan (EVN)"],
+      ka: ["GE", "ქართული", "Tbilisi International Airport (TBS)"],
+      az: ["AZ", "Azərbaycan", "Heydar Aliyev International Baku (GYD)"],
+      kk: ["KZ", "Қазақша", "Almaty International Airport (ALA)"],
+      uz: ["UZ", "O'zbekcha", "Toshkent Xalqaro Aeroporti (TAS)"],
+      ky: ["KG", "Кыргызча", "Manas International Bishkek (FRU)"],
+      tg: ["TJ", "Тоҷикӣ", "Dushanbe International Airport (DYU)"],
+      tk: ["TM", "Türkmençe", "Ashgabat International Airport (ASB)"],
+      mn: ["MN", "Монгол", "Chinggis Khaan Ulaanbaatar (UBN)"],
+      ko: ["KR", "한국어", "인천국제공항 Incheon International (ICN)"],
+      ja: ["JP", "日本語", "東京羽田空港 Tokyo Haneda (HND)"],
+      zh: ["CN", "中文", "北京首都国际机场 Beijing Capital (PEK)"],
+      ar: ["SA", "Arabic", "King Abdulaziz International Jeddah (JED)"],
+      he: ["IL", "Hebrew", "Ben Gurion International Tel Aviv (TLV)"],
+      fa: ["IR", "Persian", "Imam Khomeini International Tehran (IKA)"],
+      ps: ["AF", "Pashto", "Kabul International Airport (KBL)"],
+      ku: ["IQ", "Kurdî", "Erbil International Airport (EBL)"],
+      ur: ["PK", "Urdu", "Jinnah International Karachi (KHI)"],
+      hi: ["IN", "हिन्दी", "Indira Gandhi International Delhi (DEL)"],
+      bn: ["BD", "বাংলা", "Hazrat Shahjalal International Dhaka (DAC)"],
+      ne: ["NP", "नेपाली", "Tribhuvan International Kathmandu (KTM)"],
+      si: ["LK", "සිංහල", "Bandaranaike International Colombo (CMB)"],
+      dv: ["MV", "Dhivehi", "Velana International Airport Malé (MLE)"],
+      dz: ["BT", "Dzongkha", "Paro International Airport (PBH)"],
+      my: ["MM", "မြန်မာ", "Yangon International Airport (RGN)"],
+      th: ["TH", "ไทย", "Suvarnabhumi Airport Bangkok (BKK)"],
+      lo: ["LA", "ລາວ", "Wattay International Vientiane (VTE)"],
+      km: ["KH", "ខ្មែរ", "Phnom Penh International Airport (PNH)"],
+      vi: ["VN", "Tiếng Việt", "Tan Son Nhat International (SGN)"],
+      ms: ["MY", "Bahasa Melayu", "Kuala Lumpur International (KUL)"],
+      id: ["ID", "Bahasa Indonesia", "Soekarno-Hatta International Jakarta (CGK)"],
+      tl: ["PH", "Filipino", "Ninoy Aquino International Manila (MNL)"],
+      tet: ["TL", "Tetun", "Presidente Nicolau Lobato Dili (DIL)"],
+      ta: ["SG", "தமிழ்", "Singapore Changi Airport (SIN)"],
+      pa: ["IN", "ਪੰਜਾਬੀ", "Sri Guru Ram Dass Jee Amritsar (ATQ)"],
+      gu: ["IN", "ગુજરાતી", "Sardar Vallabhbhai Patel Ahmedabad (AMD)"],
+      mr: ["IN", "मराठी", "Chhatrapati Shivaji Maharaj Mumbai (BOM)"],
+      te: ["IN", "తెలుగు", "Rajiv Gandhi International Hyderabad (HYD)"],
+      kn: ["IN", "ಕನ್ನಡ", "Kempegowda International Bengaluru (BLR)"],
+      ml: ["IN", "മലയാളം", "Cochin International Airport Kochi (COK)"],
+      sw: ["KE", "Kiswahili", "Jomo Kenyatta International Nairobi (NBO)"],
+      am: ["ET", "አማርኛ", "Addis Ababa Bole International (ADD)"],
+      ti: ["ER", "ትግርኛ", "Asmara International Airport (ASM)"],
+      so: ["SO", "Soomaali", "Aden Adde International Mogadishu (MGQ)"],
+      af: ["ZA", "Afrikaans", "O.R. Tambo International Johannesburg (JNB)"],
+      zu: ["ZA", "isiZulu", "King Shaka International Durban (DUR)"],
+      xh: ["ZA", "isiXhosa", "Cape Town International Airport (CPT)"],
+      st: ["LS", "Sesotho", "Moshoeshoe I International Maseru (MSU)"],
+      tn: ["BW", "Setswana", "Sir Seretse Khama Gaborone (GBE)"],
+      sn: ["ZW", "ChiShona", "Robert Gabriel Mugabe Harare (HRE)"],
+      ny: ["MW", "Chichewa", "Kamuzu International Lilongwe (LLW)"],
+      rw: ["RW", "Kinyarwanda", "Kigali International Airport (KGL)"],
+      rn: ["BI", "Ikirundi", "Melchior Ndadaye Bujumbura (BJM)"],
+      lg: ["UG", "Luganda", "Entebbe International Airport (EBB)"],
+      ln: ["CD", "Lingála", "N'djili International Kinshasa (FIH)"],
+      kg: ["CG", "Kikongo", "Maya-Maya Airport Brazzaville (BZV)"],
+      mg: ["MG", "Malagasy", "Ivato International Antananarivo (TNR)"],
+      yo: ["NG", "Yorùbá", "Murtala Muhammed International Lagos (LOS)"],
+      ha: ["NG", "Hausa", "Nnamdi Azikiwe International Abuja (ABV)"],
+      ig: ["NG", "Igbo", "Akanu Ibiam International Enugu (ENU)"],
+      ak: ["GH", "Akan", "Kotoka International Airport Accra (ACC)"],
+      wo: ["SN", "Wolof", "Blaise Diagne International Dakar (DSS)"],
+      bm: ["ML", "Bamanankan", "Modibo Keita International Bamako (BKO)"],
+      ff: ["GN", "Fulfulde", "Ahmed Sékou Touré Conakry (CKY)"],
+      ber: ["MA", "Tamazight", "Mohammed V International Casablanca (CMN)"],
+      mi: ["NZ", "Māori", "Auckland International Airport (AKL)"],
+      sm: ["WS", "Gagana Sāmoa", "Faleolo International Apia (APW)"],
+      to: ["TO", "Lea Fakatonga", "Fua'amotu International Airport (TBU)"],
+      fj: ["FJ", "Vosa Vakaviti", "Nadi International Airport (NAN)"],
+      ty: ["PF", "Reo Tahiti", "Tahiti Faa'a International (PPT)"],
+      bi: ["VU", "Bislama", "Bauerfield International Port Vila (VLI)"],
+      tpi: ["PG", "Tok Pisin", "Jacksons International Port Moresby (POM)"],
+      mh: ["MH", "Marshallese", "Marshall Islands International Majuro (MAJ)"],
+      ch: ["GU", "Chamoru", "Antonio B. Won Pat Guam (GUM)"],
+      haw: ["US", "Hawaiian", "Daniel K. Inouye Honolulu (HNL)"],
+      ht: ["HT", "Kreyòl Ayisyen", "Toussaint Louverture Port-au-Prince (PAP)"],
+      gn: ["PY", "Guaraní", "Silvio Pettirossi Asunción (ASU)"],
+      qu: ["PE", "Runasimi (Quechua)", "Alejandro Velasco Astete Cusco (CUZ)"],
+      ay: ["BO", "Aymar aru", "El Alto International La Paz (LPB)"],
+      kl: ["GL", "Kalaallisut", "Mittarfik Nuuk Greenland (GOH)"],
+      fo: ["FO", "Føroyskt", "Vága Floghavn Faroe Islands (FAE)"]
     };
 
     const uiDict = {
-      en: { landingLabel: "🛬 Landing Terminal", subtitle: "Official Support Portal", badge: "Secure System Connection", desc: "Unified support and feedback portal for our mobile and web applications.", emailLabel: "Email for reply (optional)", msgLabel: "Message", msgPlaceholder: "Write your inquiry or message here...", captchaTitle: "🛡️ Anti-Bot Floating Code", captchaPlaceholder: "ENTER 6-CHAR CODE", btn: "Send Message (OK)", sending: "Verifying & Sending...", success: "Message sent successfully! Thank you for your feedback.", errorCaptcha: "Incorrect floating security code. Please try again.", errorLocked: "Too many failed attempts. Locked for 30s.", errorActivate: "Please check your inbox to activate the form or use the GitHub link below.", errorNet: "Connection error. Please try again.", github: "Or open GitHub Support (C and T Titanium) ➔" },
-      bg: { landingLabel: "🛬 Кацане в терминал", subtitle: "Официален портал за поддръжка", badge: "Сигурна връзка със системата", desc: "Единна страница за поддръжка и обратна връзка към нашите мобилни и уеб приложения.", emailLabel: "Имейл за обратна връзка (по желание)", msgLabel: "Съобщение", msgPlaceholder: "Напишете вашето запитване или сигнал тук...", captchaTitle: "🛡️ Анти-спам плаващ код", captchaPlaceholder: "ВЪВЕДИ 6-ТЕ СИМВОЛА", btn: "Изпрати съобщение (ОК)", sending: "Проверка и изпращане...", success: "Съобщението е изпратено успешно! Благодарим ви за обратната връзка.", errorCaptcha: "Грешен плаващ код за сигурност. Опитайте отново.", errorLocked: "Твърде много грешни опити. Изчакайте 30 сек.", errorActivate: "Моля, проверете пощата за първоначално активиране или използвайте GitHub бутона отдолу.", errorNet: "Възникна грешка при връзката. Моля, опитайте отново.", github: "Или отвори секцията за съобщения в GitHub (C and T Titanium) ➔" },
-      de: { landingLabel: "🛬 Landung am Terminal", subtitle: "Offizielles Support-Portal", badge: "Sichere Systemverbindung", desc: "Zentrales Support- und Feedback-Portal für unsere mobilen und Web-Anwendungen.", emailLabel: "E-Mail für Antwort (optional)", msgLabel: "Nachricht", msgPlaceholder: "Schreiben Sie Ihre Anfrage oder Nachricht hier...", captchaTitle: "🛡️ Anti-Bot Schwebecode", captchaPlaceholder: "6-STELLIGEN CODE EINGEBEN", btn: "Nachricht senden (OK)", sending: "Wird gesendet...", success: "Nachricht erfolgreich gesendet! Vielen Dank für Ihr Feedback.", errorCaptcha: "Falscher Sicherheitscode. Bitte erneut versuchen.", errorLocked: "Zu viele Fehlversuche. Für 30 Sek. gesperrt.", errorActivate: "Bitte prüfen Sie Ihr Postfach zur Aktivierung oder nutzen Sie den GitHub-Link unten.", errorNet: "Verbindungsfehler. Bitte versuchen Sie es erneut.", github: "Oder GitHub-Support öffnen (C and T Titanium) ➔" },
-      fr: { landingLabel: "🛬 Atterrissage au terminal", subtitle: "Portail d'assistance officiel", badge: "Connexion système sécurisée", desc: "Portail unifié d'assistance et de commentaires pour nos applications mobiles et web.", emailLabel: "E-mail de réponse (facultatif)", msgLabel: "Message", msgPlaceholder: "Écrivez votre demande ou message ici...", captchaTitle: "🛡️ Code flottant anti-bot", captchaPlaceholder: "ENTREZ LE CODE À 6 CAR.", btn: "Envoyer le message (OK)", sending: "Envoi en cours...", success: "Message envoyé avec succès ! Merci pour votre retour.", errorCaptcha: "Code de sécurité incorrect. Réessayez.", errorLocked: "Trop de tentatives. Verrouillé 30s.", errorActivate: "Veuillez vérifier votre boîte mail pour activer le formulaire ou utilisez le lien GitHub ci-dessous.", errorNet: "Erreur de connexion. Veuillez réessayer.", github: "Ou ouvrir le support GitHub (C and T Titanium) ➔" },
-      es: { landingLabel: "🛬 Aterrizaje en terminal", subtitle: "Portal Oficial de Soporte", badge: "Conexión segura al sistema", desc: "Portal unificado de soporte y comentarios para nuestras aplicaciones móviles y web.", emailLabel: "Correo de respuesta (opcional)", msgLabel: "Mensaje", msgPlaceholder: "Escriba su consulta o mensaje aquí...", captchaTitle: "🛡️ Código flotante anti-bots", captchaPlaceholder: "INGRESE CÓDIGO DE 6 CAR.", btn: "Enviar mensaje (OK)", sending: "Enviando...", success: "¡Mensaje enviado con éxito! Gracias por sus comentarios.", errorCaptcha: "Código de seguridad incorrecto.", errorLocked: "Demasiados intentos. Bloqueado 30s.", errorActivate: "Revise su correo para activar el formulario o use el enlace de GitHub abajo.", errorNet: "Error de conexión. Inténtelo de nuevo.", github: "O abrir soporte en GitHub (C and T Titanium) ➔" },
-      it: { landingLabel: "🛬 Atterraggio al terminal", subtitle: "Portale di Supporto Ufficiale", badge: "Connessione di sistema sicura", desc: "Portale unificato di supporto e feedback per le nostre applicazioni mobili e web.", emailLabel: "Email per la risposta (opzionale)", msgLabel: "Messaggio", msgPlaceholder: "Scrivi qui la tua richiesta o il tuo messaggio...", captchaTitle: "🛡️ Codice fluttuante anti-bot", captchaPlaceholder: "INSERISCI CODICE 6 CAR.", btn: "Invia messaggio (OK)", sending: "Invio in corso...", success: "Messaggio inviato con successo! Grazie per il tuo feedback.", errorCaptcha: "Codice di sicurezza errato.", errorLocked: "Troppi tentativi. Bloccato per 30s.", errorActivate: "Controlla la posta per attivare il modulo o usa il link GitHub qui sotto.", errorNet: "Errore di connessione. Riprova.", github: "Oppure apri il supporto GitHub (C and T Titanium) ➔" },
-      pt: { landingLabel: "🛬 Aterragem no terminal", subtitle: "Portal Oficial de Suporte", badge: "Conexão segura com o sistema", desc: "Portal unificado de suporte e feedback para nossos aplicativos móveis e web.", emailLabel: "E-mail para resposta (opcional)", msgLabel: "Mensagem", msgPlaceholder: "Escreva sua dúvida ou mensagem aqui...", captchaTitle: "🛡️ Código flutuante anti-bot", captchaPlaceholder: "DIGITE O CÓDIGO DE 6 CAR.", btn: "Enviar mensagem (OK)", sending: "Enviando...", success: "Mensagem enviada com sucesso! Obrigado pelo seu feedback.", errorCaptcha: "Código de segurança incorreto.", errorLocked: "Muitas tentativas. Bloqueado por 30s.", errorActivate: "Verifique seu e-mail para ativar o formulário ou use o link do GitHub abaixo.", errorNet: "Erro de conexão. Tente novamente.", github: "Ou abra o suporte no GitHub (C and T Titanium) ➔" },
-      ru: { landingLabel: "🛬 Посадка в терминале", subtitle: "Официальный портал поддержки", badge: "Безопасное соединение с системой", desc: "Единый портал поддержки и обратной связи для наших мобильных и веб-приложений.", emailLabel: "Email для ответа (необязательно)", msgLabel: "Сообщение", msgPlaceholder: "Напишите ваш запрос или сообщение здесь...", captchaTitle: "🛡️ Плавающий анти-бот код", captchaPlaceholder: "ВВЕДИТЕ 6 СИМВОЛОВ", btn: "Отправить сообщение (ОК)", sending: "Отправка...", success: "Сообщение успешно отправлено! Спасибо за обратную связь.", errorCaptcha: "Неверный защитный код.", errorLocked: "Слишком много попыток. Ждите 30 сек.", errorActivate: "Проверьте почту для активации формы или используйте ссылку GitHub ниже.", errorNet: "Ошибка соединения. Пожалуйста, попробуйте снова.", github: "Или открыть поддержку в GitHub (C and T Titanium) ➔" },
-      uk: { landingLabel: "🛬 Посадка в терміналі", subtitle: "Офіційний портал підтримки", badge: "Безпечне з'єднання з системою", desc: "Єдиний портал підтримки та зворотного зв'язку для наших мобільних і веб-додатків.", emailLabel: "Email для відповіді (необов'язково)", msgLabel: "Повідомлення", msgPlaceholder: "Напишіть ваш запит або повідомлення тут...", captchaTitle: "🛡️ Плаваючий анти-бот код", captchaPlaceholder: "ВВЕДІТЬ 6 СИМВОЛІВ", btn: "Надіслати повідомлення (ОК)", sending: "Надсилання...", success: "Повідомлення успішно надіслано! Дякуємо за зворотний зв'язок.", errorCaptcha: "Невірний захисний код.", errorLocked: "Забагато спроб. Зачекайте 30 сек.", errorActivate: "Перевірте пошту для активації форми або скористайтеся посиланням GitHub нижче.", errorNet: "Помилка з'єднання. Спробуйте ще раз.", github: "Або відкрити підтримку в GitHub (C and T Titanium) ➔" },
-      ko: { landingLabel: "🛬 착륙 터미널", subtitle: "공식 지원 포털", badge: "안전한 시스템 연결", desc: "모바일 및 웹 애플리케이션을 위한 통합 지원 및 피드백 포털입니다.", emailLabel: "회신받을 이메일 (선택 사항)", msgLabel: "메시지", msgPlaceholder: "문의 사항이나 메시지를 여기에 작성해 주세요...", captchaTitle: "🛡️ 스팸 방지 플로팅 코드", captchaPlaceholder: "6자리 보안 코드 입력", btn: "메시지 보내기 (OK)", sending: "전송 중...", success: "메시지가 성공적으로 전송되었습니다! 피드백을 보내주셔서 감사합니다.", errorCaptcha: "보안 코드가 일치하지 않습니다.", errorLocked: "시도 횟수 초과. 30초 후 다시 시도하세요.", errorActivate: "이메일에서 양식 활성화를 확인하거나 아래의 GitHub 링크를 이용해 주세요.", errorNet: "연결 오류가 발생했습니다. 다시 시도해 주세요.", github: "또는 GitHub 지원 페이지 열기 (C and T Titanium) ➔" },
-      ja: { landingLabel: "🛬 着陸ターミナル", subtitle: "公式サポートポータル", badge: "安全なシステム接続", desc: "モバイルおよびWebアプリケーション向けの統合サポート・フィードバックポータルです。", emailLabel: "返信先メールアドレス（任意）", msgLabel: "メッセージ", msgPlaceholder: "お問い合わせ内容をこちらにご記入ください...", captchaTitle: "🛡️ ボット対策フローティングコード", captchaPlaceholder: "6桁のコードを入力", btn: "メッセージを送信 (OK)", sending: "送信中...", success: "メッセージが正常に送信されました。フィードバックありがとうございます。", errorCaptcha: "セキュリティコードが正しくありません。", errorLocked: "試行回数が多すぎます。30秒お待ちください。", errorActivate: "フォームの有効化メールをご確認いただくか、下のGitHubリンクをご利用ください。", errorNet: "接続エラーが発生しました。もう一度お試しください。", github: "またはGitHubサポートを開く (C and T Titanium) ➔" },
-      zh: { landingLabel: "🛬 降落航站楼", subtitle: "官方支持门户", badge: "安全系统连接", desc: "我们移动和网络应用程序的统一支持与反馈门户。", emailLabel: "回复邮箱（选填）", msgLabel: "留言内容", msgPlaceholder: "请在此输入您的咨询或反馈信息...", captchaTitle: "🛡️ 防机器人动态浮动验证码", captchaPlaceholder: "输入6位浮动验证码", btn: "发送消息 (OK)", sending: "发送中...", success: "消息发送成功！感谢您的反馈。", errorCaptcha: "验证码不正确，请重试。", errorLocked: "尝试次数过多，已锁定30秒。", errorActivate: "请检查邮箱以激活表单，或使用下方的 GitHub 链接。", errorNet: "连接错误，请重试。", github: "或打开 GitHub 支持页面 (C and T Titanium) ➔" },
-      tr: { landingLabel: "🛬 İniş Terminali", subtitle: "Resmi Destek Portalı", badge: "Güvenli Sistem Bağlantısı", desc: "Mobil ve web uygulamalarımız için birleşik destek ve geri bildirim portalı.", emailLabel: "Yanıt için e-posta (isteğe bağlı)", msgLabel: "Mesaj", msgPlaceholder: "Sorunuzu veya mesajınızı buraya yazın...", captchaTitle: "🛡️ Anti-Bot Hareketli Kod", captchaPlaceholder: "6 HANELİ KODU GİRİN", btn: "Mesaj Gönder (OK)", sending: "Gönderiliyor...", success: "Mesajınız başarıyla gönderildi! Geri bildiriminiz için teşekkürler.", errorCaptcha: "Güvenlik kodu hatalı.", errorLocked: "Çok fazla deneme. 30 sn kilitlendi.", errorActivate: "Formu etkinleştirmek için e-postanızı kontrol edin veya aşağıdaki GitHub bağlantısını kullanın.", errorNet: "Bağlantı hatası. Lütfen tekrar deneyin.", github: "Veya GitHub Desteğini açın (C and T Titanium) ➔" },
-      el: { landingLabel: "🛬 Τερματικός Προσγείωσης", subtitle: "Επίσημη Πύλη Υποστήριξης", badge: "Ασφαλής σύνδεση συστήματος", desc: "Ενιαία πύλη υποστήριξης και σχολίων για τις εφαρμογές μας σε κινητά και ιστό.", emailLabel: "Email για απάντηση (προαιρετικό)", msgLabel: "Μήνυμα", msgPlaceholder: "Γράψτε το ερώτημα ή το μήνυμά σας εδώ...", captchaTitle: "🛡️ Κινούμενος Κωδικός Ασφαλείας", captchaPlaceholder: "ΕΙΣΑΓΕΤΕ 6 ΧΑΡΑΚΤΗΡΕΣ", btn: "Αποστολή μηνύματος (OK)", sending: "Αποστολή...", success: "Το μήνυμα στάλθηκε επιτυχώς! Ευχαριστούμε για τα σχόλιά σας.", errorCaptcha: "Λάθος κωδικός ασφαλείας.", errorLocked: "Πολλές προσπάθειες. Κλείδωμα 30δ.", errorActivate: "Ελέγξτε το email σας για ενεργοποίηση ή χρησιμοποιήστε τον σύνδεσμο GitHub παρακάτω.", errorNet: "Σφάλμα σύνδεσης. Παρακαλώ προσπαθήστε ξανά.", github: "Ή ανοίξτε την υποστήριξη GitHub (C and T Titanium) ➔" },
-      ro: { landingLabel: "🛬 Aterizare la terminal", subtitle: "Portal Oficial de Suport", badge: "Conexiune securizată la sistem", desc: "Portal unificat de suport și feedback pentru aplicațiile noastre mobile și web.", emailLabel: "Email pentru răspuns (opțional)", msgLabel: "Mesaj", msgPlaceholder: "Scrieți întrebarea sau mesajul dvs. aici...", captchaTitle: "🛡️ Cod Flotant Anti-Bot", captchaPlaceholder: "INTRODUCEȚI 6 CARACTERE", btn: "Trimite mesajul (OK)", sending: "Se trimite...", success: "Mesajul a fost trimis cu succes! Vă mulțumim pentru feedback.", errorCaptcha: "Cod de securitate incorect.", errorLocked: "Prea multe încercări. Blocat 30s.", errorActivate: "Verificați e-mailul pentru activarea formularului sau folosiți linkul GitHub de mai jos.", errorNet: "Eroare de conexiune. Vă rugăm să încercați din nou.", github: "Sau deschideți suportul GitHub (C and T Titanium) ➔" },
-      sr: { landingLabel: "🛬 Слетање на терминал", subtitle: "Званични портал за подршку", badge: "Сигурна веза са системом", desc: "Јединствена страница за подршку и повратне информације за наше мобилне и веб апликације.", emailLabel: "Имејл за одговор (опционо)", msgLabel: "Порука", msgPlaceholder: "Напишите ваш упит или поруку овде...", captchaTitle: "🛡️ Плутајући анти-бот код", captchaPlaceholder: "УНЕСИТЕ 6 КАРАКТЕРА", btn: "Пошаљи поруку (ОК)", sending: "Слање...", success: "Порука је успешно послата! Хвала на повратним информацијама.", errorCaptcha: "Погрешан сигурносни код.", errorLocked: "Превише покушаја. Сачекајте 30с.", errorActivate: "Проверите пошту за активацију форме или користите GitHub линк испод.", errorNet: "Грешка у вези. Покушајте поново.", github: "Или отворите GitHub подршку (C and T Titanium) ➔" }
+      en: { landingLabel: "Landing Terminal", subtitle: "Captain Titanium Neo Portal", badge: "Secure System Connection", desc: "Unified support and feedback portal for our mobile and web applications.", emailLabel: "Email for reply (optional)", msgLabel: "Message", msgPlaceholder: "Write your inquiry or message here...", captchaTitle: "Anti-Bot Floating Code", captchaPlaceholder: "ENTER 6-CHAR CODE", btn: "Send Message (OK)", sending: "Verifying & Sending...", success: "Message sent successfully! Thank you.", errorCaptcha: "Incorrect floating security code.", errorLocked: "Locked for 30s due to failed attempts.", errorActivate: "Check inbox to activate form or use GitHub below.", errorNet: "Connection error. Please try again.", github: "GitHub: Captain Titanium Neo" },
+      bg: { landingLabel: "Кацане в терминал", subtitle: "Официален портал за поддръжка", badge: "Сигурна връзка със системата", desc: "Единна страница за поддръжка и обратна връзка към нашите мобилни и уеб приложения.", emailLabel: "Имейл за обратна връзка (по желание)", msgLabel: "Съобщение", msgPlaceholder: "Напишете вашето запитване или сигнал тук...", captchaTitle: "Анти-спам плаващ код", captchaPlaceholder: "ВЪВЕДИ 6-ТЕ СИМВОЛА", btn: "Изпрати съобщение (ОК)", sending: "Проверка и изпращане...", success: "Съобщението е изпратено успешно!", errorCaptcha: "Грешен плаващ код за сигурност.", errorLocked: "Заключено за 30 сек. след грешни опити.", errorActivate: "Проверете пощата за активация или ползвайте GitHub.", errorNet: "Грешка при връзката. Опитайте отново.", github: "GitHub профил: Captain Titanium Neo" },
+      de: { landingLabel: "Landung am Terminal", subtitle: "Offizielles Support-Portal", badge: "Sichere Systemverbindung", desc: "Zentrales Support- und Feedback-Portal für unsere mobilen und Web-Anwendungen.", emailLabel: "E-Mail für Antwort (optional)", msgLabel: "Nachricht", msgPlaceholder: "Schreiben Sie Ihre Anfrage oder Nachricht hier...", captchaTitle: "Anti-Bot Schwebecode", captchaPlaceholder: "6-STELLIGEN CODE EINGEBEN", btn: "Nachricht senden (OK)", sending: "Wird gesendet...", success: "Nachricht erfolgreich gesendet!", errorCaptcha: "Falscher Sicherheitscode.", errorLocked: "Für 30 Sek. gesperrt.", errorActivate: "Postfach prüfen oder GitHub unten nutzen.", errorNet: "Verbindungsfehler. Bitte erneut versuchen.", github: "GitHub: Captain Titanium Neo" },
+      fr: { landingLabel: "Atterrissage au terminal", subtitle: "Portail d'assistance officiel", badge: "Connexion système sécurisée", desc: "Portail unifié d'assistance et de commentaires pour nos applications mobiles et web.", emailLabel: "E-mail de réponse (facultatif)", msgLabel: "Message", msgPlaceholder: "Écrivez votre demande ou message ici...", captchaTitle: "Code flottant anti-bot", captchaPlaceholder: "ENTREZ LE CODE À 6 CAR.", btn: "Envoyer le message (OK)", sending: "Envoi en cours...", success: "Message envoyé avec succès !", errorCaptcha: "Code de sécurité incorrect.", errorLocked: "Verrouillé 30s.", errorActivate: "Vérifiez votre boîte mail ou utilisez GitHub.", errorNet: "Erreur de connexion.", github: "GitHub : Captain Titanium Neo" },
+      es: { landingLabel: "Aterrizaje en terminal", subtitle: "Portal Oficial de Soporte", badge: "Conexión segura al sistema", desc: "Portal unificado de soporte y comentarios para nuestras aplicaciones móviles y web.", emailLabel: "Correo de respuesta (opcional)", msgLabel: "Mensaje", msgPlaceholder: "Escriba su consulta o mensaje aquí...", captchaTitle: "Código flotante anti-bots", captchaPlaceholder: "INGRESE CÓDIGO DE 6 CAR.", btn: "Enviar mensaje (OK)", sending: "Enviando...", success: "¡Mensaje enviado con éxito!", errorCaptcha: "Código de seguridad incorrecto.", errorLocked: "Bloqueado 30s.", errorActivate: "Revise su correo o use GitHub abajo.", errorNet: "Error de conexión.", github: "GitHub: Captain Titanium Neo" },
+      it: { landingLabel: "Atterraggio al terminal", subtitle: "Portale di Supporto Ufficiale", badge: "Connessione di sistema sicura", desc: "Portale unificato di supporto e feedback per le nostre applicazioni mobili e web.", emailLabel: "Email per la risposta (opzionale)", msgLabel: "Messaggio", msgPlaceholder: "Scrivi qui la tua richiesta o il tuo messaggio...", captchaTitle: "Codice fluttuante anti-bot", captchaPlaceholder: "INSERISCI CODICE 6 CAR.", btn: "Invia messaggio (OK)", sending: "Invio in corso...", success: "Messaggio inviato con successo!", errorCaptcha: "Codice di sicurezza errato.", errorLocked: "Bloccato per 30s.", errorActivate: "Controlla la posta o usa GitHub sotto.", errorNet: "Errore di connessione.", github: "GitHub: Captain Titanium Neo" },
+      pt: { landingLabel: "Aterragem no terminal", subtitle: "Portal Oficial de Suporte", badge: "Conexão segura com o sistema", desc: "Portal unificado de suporte e feedback para nossos aplicativos móveis e web.", emailLabel: "E-mail para resposta (opcional)", msgLabel: "Mensagem", msgPlaceholder: "Escreva sua dúvida ou mensagem aqui...", captchaTitle: "Código flutuante anti-bot", captchaPlaceholder: "DIGITE O CÓDIGO DE 6 CAR.", btn: "Enviar mensagem (OK)", sending: "Enviando...", success: "Mensagem enviada com sucesso!", errorCaptcha: "Código de segurança incorreto.", errorLocked: "Bloqueado por 30s.", errorActivate: "Verifique seu e-mail ou use o GitHub.", errorNet: "Erro de conexão.", github: "GitHub: Captain Titanium Neo" },
+      ru: { landingLabel: "Посадка в терминале", subtitle: "Официальный портал поддержки", badge: "Безопасное соединение с системой", desc: "Единый портал поддержки и обратной связи для наших мобильных и веб-приложений.", emailLabel: "Email для ответа (необязательно)", msgLabel: "Сообщение", msgPlaceholder: "Напишите ваш запрос или сообщение здесь...", captchaTitle: "Плавающий анти-бот код", captchaPlaceholder: "ВВЕДИТЕ 6 СИМВОЛОВ", btn: "Отправить сообщение (ОК)", sending: "Отправка...", success: "Сообщение успешно отправлено!", errorCaptcha: "Неверный защитный код.", errorLocked: "Заблокировано на 30 сек.", errorActivate: "Проверьте почту или используйте GitHub.", errorNet: "Ошибка соединения.", github: "GitHub: Captain Titanium Neo" },
+      uk: { landingLabel: "Посадка в терміналі", subtitle: "Офіційний портал підтримки", badge: "Безпечне з'єднання з системою", desc: "Єдиний портал підтримки та зворотного зв'язку для наших мобільних і веб-додатків.", emailLabel: "Email для відповіді (необов'язково)", msgLabel: "Повідомлення", msgPlaceholder: "Напишіть ваш запит або повідомлення тут...", captchaTitle: "Плаваючий анти-бот код", captchaPlaceholder: "ВВЕДІТЬ 6 СИМВОЛІВ", btn: "Надіслати повідомлення (ОК)", sending: "Надсилання...", success: "Повідомлення успішно надіслано!", errorCaptcha: "Невірний захисний код.", errorLocked: "Заблоковано на 30 сек.", errorActivate: "Перевірте пошту або GitHub нижче.", errorNet: "Помилка з'єднання.", github: "GitHub: Captain Titanium Neo" },
+      ko: { landingLabel: "착륙 터미널", subtitle: "공식 지원 포털", badge: "안전한 시스템 연결", desc: "모바일 및 웹 애플리케이션을 위한 통합 지원 및 피드백 포털입니다.", emailLabel: "회신받을 이메일 (선택 사항)", msgLabel: "메시지", msgPlaceholder: "문의 사항이나 메시지를 여기에 작성해 주세요...", captchaTitle: "스팸 방지 플로팅 코드", captchaPlaceholder: "6자리 보안 코드 입력", btn: "메시지 보내기 (OK)", sending: "전송 중...", success: "메시지가 성공적으로 전송되었습니다!", errorCaptcha: "보안 코드가 일치하지 않습니다.", errorLocked: "30초 후 다시 시도하세요.", errorActivate: "이메일 확인 또는 아래 GitHub를 이용하세요.", errorNet: "연결 오류가 발생했습니다.", github: "GitHub: Captain Titanium Neo" },
+      ja: { landingLabel: "着陸ターミナル", subtitle: "公式サポートポータル", badge: "安全なシステム接続", desc: "モバイルおよびWebアプリケーション向けの統合サポート・フィードバックポータルです。", emailLabel: "返信先メールアドレス（任意）", msgLabel: "メッセージ", msgPlaceholder: "お問い合わせ内容をこちらにご記入ください...", captchaTitle: "ボット対策フローティングコード", captchaPlaceholder: "6桁のコードを入力", btn: "メッセージを送信 (OK)", sending: "送信中...", success: "メッセージが正常に送信されました。", errorCaptcha: "セキュリティコードが正しくありません。", errorLocked: "30秒お待ちください。", errorActivate: "メール確認または下のGitHubをご利用ください。", errorNet: "接続エラーが発生しました。", github: "GitHub: Captain Titanium Neo" },
+      zh: { landingLabel: "降落航站楼", subtitle: "官方支持门户", badge: "安全系统连接", desc: "我们移动和网络应用程序的统一支持与反馈门户。", emailLabel: "回复邮箱（选填）", msgLabel: "留言内容", msgPlaceholder: "请在此输入您的咨询或反馈信息...", captchaTitle: "防机器人动态浮动验证码", captchaPlaceholder: "输入6位浮动验证码", btn: "发送消息 (OK)", sending: "发送中...", success: "消息发送成功！", errorCaptcha: "验证码不正确。", errorLocked: "已锁定30秒。", errorActivate: "请检查邮箱或使用下方 GitHub。", errorNet: "连接错误，请重试。", github: "GitHub: Captain Titanium Neo" },
+      tr: { landingLabel: "İniş Terminali", subtitle: "Resmi Destek Portalı", badge: "Güvenli Sistem Bağlantısı", desc: "Mobil ve web uygulamalarımız için birleşik destek ve geri bildirim portalı.", emailLabel: "Yanıt için e-posta (isteğe bağlı)", msgLabel: "Mesaj", msgPlaceholder: "Sorunuzu veya mesajınızı buraya yazın...", captchaTitle: "Anti-Bot Hareketli Kod", captchaPlaceholder: "6 HANELİ KODU GİRİN", btn: "Mesaj Gönder (OK)", sending: "Gönderiliyor...", success: "Mesajınız başarıyla gönderildi!", errorCaptcha: "Güvenlik kodu hatalı.", errorLocked: "30 sn kilitlendi.", errorActivate: "E-postanızı kontrol edin veya GitHub kullanın.", errorNet: "Bağlantı hatası.", github: "GitHub: Captain Titanium Neo" },
+      el: { landingLabel: "Τερματικός Προσγείωσης", subtitle: "Επίσημη Πύλη Υποστήριξης", badge: "Ασφαλής σύνδεση συστήματος", desc: "Ενιαία πύλη υποστήριξης και σχολίων για τις εφαρμογές μας σε κινητά και ιστό.", emailLabel: "Email για απάντηση (προαιρετικό)", msgLabel: "Μήνυμα", msgPlaceholder: "Γράψτε το ερώτημα ή το μήνυμά σας εδώ...", captchaTitle: "Κινούμενος Κωδικός Ασφαλείας", captchaPlaceholder: "ΕΙΣΑΓΕΤΕ 6 ΧΑΡΑΚΤΗΡΕΣ", btn: "Αποστολή μηνύματος (OK)", sending: "Αποστολή...", success: "Το μήνυμα στάλθηκε επιτυχώς!", errorCaptcha: "Λάθος κωδικός ασφαλείας.", errorLocked: "Κλείδωμα 30δ.", errorActivate: "Ελέγξτε το email ή το GitHub παρακάτω.", errorNet: "Σφάλμα σύνδεσης.", github: "GitHub: Captain Titanium Neo" },
+      ro: { landingLabel: "Aterizare la terminal", subtitle: "Portal Oficial de Suport", badge: "Conexiune securizată la sistem", desc: "Portal unificat de suport și feedback pentru aplicațiile noastre mobile și web.", emailLabel: "Email pentru răspuns (opțional)", msgLabel: "Mesaj", msgPlaceholder: "Scrieți întrebarea sau mesajul dvs. aici...", captchaTitle: "Cod Flotant Anti-Bot", captchaPlaceholder: "INTRODUCEȚI 6 CARACTERE", btn: "Trimite mesajul (OK)", sending: "Se trimite...", success: "Mesajul a fost trimis cu succes!", errorCaptcha: "Cod de securitate incorect.", errorLocked: "Blocat 30s.", errorActivate: "Verificați e-mailul sau GitHub mai jos.", errorNet: "Eroare de conexiune.", github: "GitHub: Captain Titanium Neo" },
+      sr: { landingLabel: "Слетање на терминал", subtitle: "Званични портал за подршку", badge: "Сигурна веза са системом", desc: "Јединствена страница за подршку и повратне информације за наше мобилне и веб апликације.", emailLabel: "Имејл за одговор (опционо)", msgLabel: "Порука", msgPlaceholder: "Напишите ваш упит или поруку овде...", captchaTitle: "Плутајући анти-бот код", captchaPlaceholder: "УНЕСИТЕ 6 КАРАКТЕРА", btn: "Пошаљи поруку (ОК)", sending: "Слање...", success: "Порука је успешно послата!", errorCaptcha: "Погрешан сигурносни код.", errorLocked: "Сачекајте 30с.", errorActivate: "Проверите пошту или GitHub линк испод.", errorNet: "Грешка у вези.", github: "GitHub: Captain Titanium Neo" }
     };
 
     const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'ps', 'ku', 'dv'];
@@ -747,7 +765,8 @@
     const langSelect = document.getElementById('langSelect');
 
     Object.keys(worldAirports).forEach(code => {
-      const [flag, nativeName] = worldAirports[code];
+      const [cc, nativeName] = worldAirports[code];
+      const flag = getFlagEmoji(cc);
       const opt = document.createElement('option');
       opt.value = code;
       opt.textContent = `${flag} ${code.toUpperCase()} - ${nativeName}`;
@@ -756,25 +775,26 @@
 
     function renderUI(dict, langCode) {
       const airportData = worldAirports[langCode] || worldAirports.en;
-      const [flag, , airportName] = airportData;
+      const [cc, , airportName] = airportData;
+      const flag = getFlagEmoji(cc);
 
       currentStrings = { ...uiDict.en, ...dict };
       document.documentElement.lang = langCode;
       document.documentElement.dir = rtlLanguages.includes(langCode) ? 'rtl' : 'ltr';
-      document.title = `C and T Titanium | ${currentStrings.subtitle}`;
+      document.title = `Captain Titanium | ${currentStrings.subtitle}`;
       document.getElementById('t-subtitle').textContent = currentStrings.subtitle;
       document.getElementById('t-flag').textContent = flag;
-      document.getElementById('t-landing-label').textContent = currentStrings.landingLabel;
+      document.getElementById('t-landing-label').textContent = "\uD83D\uDEEC " + currentStrings.landingLabel;
       document.getElementById('t-airport-name').textContent = airportName;
       document.getElementById('t-badge').textContent = currentStrings.badge;
       document.getElementById('t-desc').textContent = currentStrings.desc;
       document.getElementById('t-email-label').textContent = currentStrings.emailLabel;
       document.getElementById('t-msg-label').textContent = currentStrings.msgLabel;
       document.getElementById('message').placeholder = currentStrings.msgPlaceholder;
-      document.getElementById('t-captcha-title').textContent = currentStrings.captchaTitle;
+      document.getElementById('t-captcha-title').textContent = "\uD83D\uDEE1\uFE0F " + currentStrings.captchaTitle;
       document.getElementById('captchaInput').placeholder = currentStrings.captchaPlaceholder;
       document.getElementById('submitBtn').textContent = currentStrings.btn;
-      document.getElementById('t-github').textContent = currentStrings.github;
+      document.getElementById('t-github').textContent = currentStrings.github + " \u2794";
 
       if (worldAirports[langCode]) {
         langSelect.value = langCode;
@@ -792,7 +812,7 @@
 
       try {
         const base = uiDict.en;
-        const keys = ['subtitle', 'badge', 'desc', 'emailLabel', 'msgLabel', 'msgPlaceholder', 'captchaTitle', 'captchaPlaceholder', 'btn', 'sending', 'success', 'errorCaptcha', 'errorActivate', 'errorNet', 'github'];
+        const keys = ['landingLabel', 'subtitle', 'badge', 'desc', 'emailLabel', 'msgLabel', 'msgPlaceholder', 'captchaTitle', 'captchaPlaceholder', 'btn', 'sending', 'success', 'errorCaptcha', 'errorActivate', 'errorNet'];
         const sep = " ||| ";
         const query = keys.map(k => base[k]).join(sep);
         const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(code)}&dt=t&q=${encodeURIComponent(query)}`);
@@ -801,7 +821,7 @@
         const full = data[0].map(x => x[0]).join('');
         const parts = full.split(/\s*\|\|\|\s*/);
         if (parts.length === keys.length) {
-          const dynamicDict = { landingLabel: "🛬 Landing Terminal" };
+          const dynamicDict = { github: "GitHub: Captain Titanium Neo" };
           keys.forEach((k, idx) => { dynamicDict[k] = parts[idx]; });
           uiDict[code] = dynamicDict;
           renderUI(dynamicDict, code);
@@ -846,7 +866,6 @@
     const captchaTimerEl = document.getElementById('captchaTimer');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Недвусмислени символи с висока ентропия
     const CHARSET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
     let activeCode = "";
     let charProps = [];
@@ -873,20 +892,20 @@
           char: ch,
           phase: Math.random() * Math.PI * 2,
           speed: 0.045 + Math.random() * 0.03,
-          ampY: 5.5 + Math.random() * 3.5,
+          ampY: 4.5 + Math.random() * 3,
           ampRot: 0.18 + Math.random() * 0.14,
           color: colors[i % colors.length]
         });
       }
 
       noiseDots = [];
-      for (let i = 0; i < 38; i++) {
+      for (let i = 0; i < 35; i++) {
         noiseDots.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 1.4,
           vy: (Math.random() - 0.5) * 1.4,
-          r: 1 + Math.random() * 1.5
+          r: 1 + Math.random() * 1.4
         });
       }
 
@@ -902,7 +921,6 @@
       animTick += 1;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Тъмен кибер фон с изкривена защитна решетка против сегментиране
       ctx.fillStyle = "#060911";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -915,15 +933,14 @@
         ctx.stroke();
       }
 
-      // Непрекъснато плуващи и въртящи се символи
-      const startX = 32;
-      const stepX = 41;
+      const startX = 28;
+      const stepX = 39;
 
       for (let i = 0; i < charProps.length; i++) {
         const p = charProps[i];
         const wave = animTick * p.speed + p.phase;
-        const dx = startX + i * stepX + Math.cos(wave * 0.9) * 3.5;
-        const dy = canvas.height / 2 + 8 + Math.sin(wave) * p.ampY;
+        const dx = startX + i * stepX + Math.cos(wave * 0.9) * 3;
+        const dy = canvas.height / 2 + 7 + Math.sin(wave) * p.ampY;
         const rot = Math.sin(wave * 0.8) * p.ampRot;
 
         ctx.save();
@@ -931,33 +948,30 @@
         ctx.rotate(rot);
         ctx.transform(1, Math.sin(wave) * 0.12, Math.cos(wave) * 0.12, 1, 0, 0);
 
-        ctx.font = "900 26px 'Courier New', Consolas, monospace";
+        ctx.font = "900 23px 'Courier New', Consolas, monospace";
         ctx.shadowColor = p.color;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 7;
         ctx.fillStyle = p.color;
-        ctx.fillText(p.char, -9, 0);
+        ctx.fillText(p.char, -8, 0);
 
-        // Втори контурен слой за объркване на AI OCR модели
         ctx.strokeStyle = "#ffffff";
-        ctx.lineWidth = 0.6;
-        ctx.strokeText(p.char, -8, -1);
+        ctx.lineWidth = 0.5;
+        ctx.strokeText(p.char, -7, -1);
         ctx.restore();
       }
 
-      // Пресичащи се динамични вълни поверх текста (Anti-OCR)
       for (let w = 0; w < 2; w++) {
         ctx.beginPath();
         ctx.strokeStyle = w === 0 ? "rgba(0, 229, 255, 0.48)" : "rgba(0, 230, 118, 0.38)";
-        ctx.lineWidth = 1.6;
+        ctx.lineWidth = 1.5;
         for (let x = 0; x <= canvas.width; x += 10) {
-          const y = canvas.height / 2 + Math.sin(x * 0.045 + animTick * 0.07 + w * 2) * 16;
+          const y = canvas.height / 2 + Math.sin(x * 0.045 + animTick * 0.07 + w * 2) * 13;
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
         ctx.stroke();
       }
 
-      // Движещи се смущаващи частици
       ctx.fillStyle = "rgba(226, 232, 240, 0.45)";
       for (const dot of noiseDots) {
         dot.x += dot.vx;
@@ -974,11 +988,10 @@
       requestAnimationFrame(renderFloatingCaptcha);
     }
 
-    // Таймер за автоматична смяна на плаващия код на всеки 60 секунди
     setInterval(() => {
       if (Date.now() < lockedUntil) {
         const waitSec = Math.ceil((lockedUntil - Date.now()) / 1000);
-        captchaTimerEl.textContent = `🔒 ${waitSec}s`;
+        captchaTimerEl.textContent = `${waitSec}s`;
         return;
       }
       timeLeft -= 1;
@@ -1002,12 +1015,12 @@
         if (val === activeCode) {
           this.classList.add('valid');
           this.classList.remove('invalid');
-          captchaStatusIcon.textContent = "✅";
+          captchaStatusIcon.textContent = "\u2714";
           submitBtn.disabled = false;
         } else {
           this.classList.add('invalid');
           this.classList.remove('valid');
-          captchaStatusIcon.textContent = "❌";
+          captchaStatusIcon.textContent = "\u2716";
           submitBtn.disabled = true;
           failedAttempts += 1;
 
@@ -1032,7 +1045,6 @@
     generateChallenge();
     requestAnimationFrame(renderFloatingCaptcha);
 
-    // Криптографско доказателство за работа (Proof-of-Work) преди изпращане
     function computeProofOfWork(seed) {
       let nonce = 0;
       while (nonce < 250000) {
@@ -1048,7 +1060,6 @@
       return nonce;
     }
 
-    // Кодиран имейл и защитено изпращане на формата
     const form = document.getElementById('contactForm');
     const statusMessage = document.getElementById('statusMessage');
     const _target = [105,98,97,110,101,118,64,103,109,97,105,108,46,99,111,109].map(c => String.fromCharCode(c)).join('');
@@ -1056,7 +1067,6 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Защита 1: Проверка за Honeypot, човешка интеракция и точен плаващ код
       const honey = document.getElementById('honeyField').value;
       const enteredCode = captchaInput.value.trim().toUpperCase();
 
@@ -1071,7 +1081,6 @@
       submitBtn.textContent = currentStrings.sending;
       statusMessage.className = 'status-msg';
 
-      // Защита 2: Изчисляване на криптографски Proof-of-Work токен
       const powNonce = computeProofOfWork(activeCode);
       const formData = new FormData(form);
       formData.append('_security_pow', powNonce);
