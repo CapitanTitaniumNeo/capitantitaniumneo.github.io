@@ -543,12 +543,10 @@
       </p>
     </section>
 
-    <!-- Дясна/Долна секция: Форма и Плаващ анти-бот код -->
+    <!-- Дясна/Долна секция: Форма (Formspree xkjjaney) и Плаващ анти-бот код -->
     <section class="form-pane">
-      <form class="contact-form" id="contactForm" novalidate>
-        <input type="text" name="_honey" id="honeyField" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="New message from Captain Titanium Neo Portal">
-        <input type="hidden" name="_captcha" value="false">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkjjaney" method="POST" novalidate>
+        <input type="text" name="_gotcha" id="honeyField" style="display:none" tabindex="-1" autocomplete="off">
 
         <div>
           <label for="sender" id="t-email-label">Email for reply (optional)</label>
@@ -726,22 +724,22 @@
     };
 
     const uiDict = {
-      en: { landingLabel: "Landing Terminal", subtitle: "Captain Titanium Neo Portal", badge: "Secure System Connection", desc: "Unified support and feedback portal for our mobile and web applications.", emailLabel: "Email for reply (optional)", msgLabel: "Message", msgPlaceholder: "Write your inquiry or message here...", captchaTitle: "Anti-Bot Floating Code", captchaPlaceholder: "ENTER 6-CHAR CODE", btn: "Send Message (OK)", sending: "Verifying & Sending...", success: "Message sent successfully! Thank you.", errorCaptcha: "Incorrect floating security code.", errorLocked: "Locked for 30s due to failed attempts.", errorActivate: "Check inbox to activate form.", errorNet: "Connection error. Please try again." },
-      bg: { landingLabel: "Кацане в терминал", subtitle: "Официален портал за поддръжка", badge: "Сигурна връзка със системата", desc: "Единна страница за поддръжка и обратна връзка към нашите мобилни и уеб приложения.", emailLabel: "Имейл за обратна връзка (по желание)", msgLabel: "Съобщение", msgPlaceholder: "Напишете вашето запитване или сигнал тук...", captchaTitle: "Анти-спам плаващ код", captchaPlaceholder: "ВЪВЕДИ 6-ТЕ СИМВОЛА", btn: "Изпрати съобщение (ОК)", sending: "Проверка и изпращане...", success: "Съобщението е изпратено успешно!", errorCaptcha: "Грешен плаващ код за сигурност.", errorLocked: "Заключено за 30 сек. след грешни опити.", errorActivate: "Моля, проверете пощата за първоначална активация.", errorNet: "Грешка при връзката. Опитайте отново." },
-      de: { landingLabel: "Landung am Terminal", subtitle: "Offizielles Support-Portal", badge: "Sichere Systemverbindung", desc: "Zentrales Support- und Feedback-Portal für unsere mobilen und Web-Anwendungen.", emailLabel: "E-Mail für Antwort (optional)", msgLabel: "Nachricht", msgPlaceholder: "Schreiben Sie Ihre Anfrage oder Nachricht hier...", captchaTitle: "Anti-Bot Schwebecode", captchaPlaceholder: "6-STELLIGEN CODE EINGEBEN", btn: "Nachricht senden (OK)", sending: "Wird gesendet...", success: "Nachricht erfolgreich gesendet!", errorCaptcha: "Falscher Sicherheitscode.", errorLocked: "Für 30 Sek. gesperrt.", errorActivate: "Bitte Postfach zur Aktivierung prüfen.", errorNet: "Verbindungsfehler. Bitte erneut versuchen." },
-      fr: { landingLabel: "Atterrissage au terminal", subtitle: "Portail d'assistance officiel", badge: "Connexion système sécurisée", desc: "Portail unifié d'assistance et de commentaires pour nos applications mobiles et web.", emailLabel: "E-mail de réponse (facultatif)", msgLabel: "Message", msgPlaceholder: "Écrivez votre demande ou message ici...", captchaTitle: "Code flottant anti-bot", captchaPlaceholder: "ENTREZ LE CODE À 6 CAR.", btn: "Envoyer le message (OK)", sending: "Envoi en cours...", success: "Message envoyé avec succès !", errorCaptcha: "Code de sécurité incorrect.", errorLocked: "Verrouillé 30s.", errorActivate: "Vérifiez votre boîte mail pour activer.", errorNet: "Erreur de connexion." },
-      es: { landingLabel: "Aterrizaje en terminal", subtitle: "Portal Oficial de Soporte", badge: "Conexión segura al sistema", desc: "Portal unificado de soporte y comentarios para nuestras aplicaciones móviles y web.", emailLabel: "Correo de respuesta (opcional)", msgLabel: "Mensaje", msgPlaceholder: "Escriba su consulta o mensaje aquí...", captchaTitle: "Código flotante anti-bots", captchaPlaceholder: "INGRESE CÓDIGO DE 6 CAR.", btn: "Enviar mensaje (OK)", sending: "Enviando...", success: "¡Mensaje enviado con éxito!", errorCaptcha: "Código de seguridad incorrecto.", errorLocked: "Bloqueado 30s.", errorActivate: "Revise su correo para activar.", errorNet: "Error de conexión." },
-      it: { landingLabel: "Atterraggio al terminal", subtitle: "Portale di Supporto Ufficiale", badge: "Connessione di sistema sicura", desc: "Portale unificato di supporto e feedback per le nostre applicazioni mobili e web.", emailLabel: "Email per la risposta (opzionale)", msgLabel: "Messaggio", msgPlaceholder: "Scrivi qui la tua richiesta o il tuo messaggio...", captchaTitle: "Codice fluttuante anti-bot", captchaPlaceholder: "INSERISCI CODICE 6 CAR.", btn: "Invia messaggio (OK)", sending: "Invio in corso...", success: "Messaggio inviato con successo!", errorCaptcha: "Codice di sicurezza errato.", errorLocked: "Bloccato per 30s.", errorActivate: "Controlla la posta per attivare.", errorNet: "Errore di connessione." },
-      pt: { landingLabel: "Aterragem no terminal", subtitle: "Portal Oficial de Suporte", badge: "Conexão segura com o sistema", desc: "Portal unificado de suporte e feedback para nossos aplicativos móveis e web.", emailLabel: "E-mail para resposta (opcional)", msgLabel: "Mensagem", msgPlaceholder: "Escreva sua dúvida ou mensagem aqui...", captchaTitle: "Código flutuante anti-bot", captchaPlaceholder: "DIGITE O CÓDIGO DE 6 CAR.", btn: "Enviar mensagem (OK)", sending: "Enviando...", success: "Mensagem enviada com sucesso!", errorCaptcha: "Código de segurança incorreto.", errorLocked: "Bloqueado por 30s.", errorActivate: "Verifique seu e-mail para ativar.", errorNet: "Erro de conexão." },
-      ru: { landingLabel: "Посадка в терминале", subtitle: "Официальный портал поддержки", badge: "Безопасное соединение с системой", desc: "Единый портал поддержки и обратной связи для наших мобильных и веб-приложений.", emailLabel: "Email для ответа (необязательно)", msgLabel: "Сообщение", msgPlaceholder: "Напишите ваш запрос или сообщение здесь...", captchaTitle: "Плавающий анти-бот код", captchaPlaceholder: "ВВЕДИТЕ 6 СИМВОЛОВ", btn: "Отправить сообщение (ОК)", sending: "Отправка...", success: "Сообщение успешно отправлено!", errorCaptcha: "Неверный защитный код.", errorLocked: "Заблокировано на 30 сек.", errorActivate: "Проверьте почту для активации.", errorNet: "Ошибка соединения." },
-      uk: { landingLabel: "Посадка в терміналі", subtitle: "Офіційний портал підтримки", badge: "Безпечне з'єднання з системою", desc: "Єдиний портал підтримки та зворотного зв'язку для наших мобільних і веб-додатків.", emailLabel: "Email для відповіді (необов'язково)", msgLabel: "Повідомлення", msgPlaceholder: "Напишіть ваш запит або повідомлення тут...", captchaTitle: "Плаваючий анти-бот код", captchaPlaceholder: "ВВЕДІТЬ 6 СИМВОЛІВ", btn: "Надіслати повідомлення (ОК)", sending: "Надсилання...", success: "Повідомлення успішно надіслано!", errorCaptcha: "Невірний захисний код.", errorLocked: "Заблоковано на 30 сек.", errorActivate: "Перевірте пошту для активації.", errorNet: "Помилка з'єднання." },
-      ko: { landingLabel: "착륙 터미널", subtitle: "공식 지원 포털", badge: "안전한 시스템 연결", desc: "모바일 및 웹 애플리케이션을 위한 통합 지원 및 피드백 포털입니다.", emailLabel: "회신받을 이메일 (선택 사항)", msgLabel: "메시지", msgPlaceholder: "문의 사항이나 메시지를 여기에 작성해 주세요...", captchaTitle: "스팸 방지 플로팅 코드", captchaPlaceholder: "6자리 보안 코드 입력", btn: "메시지 보내기 (OK)", sending: "전송 중...", success: "메시지가 성공적으로 전송되었습니다!", errorCaptcha: "보안 코드가 일치하지 않습니다.", errorLocked: "30초 후 다시 시도하세요.", errorActivate: "이메일에서 양식 활성화를 확인하세요.", errorNet: "연결 오류가 발생했습니다." },
-      ja: { landingLabel: "着陸ターミナル", subtitle: "公式サポートポータル", badge: "安全なシステム接続", desc: "モバイルおよびWebアプリケーション向けの統合サポート・フィードバックポータルです。", emailLabel: "返信先メールアドレス（任意）", msgLabel: "メッセージ", msgPlaceholder: "お問い合わせ内容をこちらにご記入ください...", captchaTitle: "ボット対策フローティングコード", captchaPlaceholder: "6桁のコードを入力", btn: "メッセージを送信 (OK)", sending: "送信中...", success: "メッセージが正常に送信されました。", errorCaptcha: "セキュリティコードが正しくありません。", errorLocked: "30秒お待ちください。", errorActivate: "メールで有効化を確認してください。", errorNet: "接続エラーが発生しました." },
-      zh: { landingLabel: "降落航站楼", subtitle: "官方支持门户", badge: "安全系统连接", desc: "我们移动和网络应用程序的统一支持与反馈门户。", emailLabel: "回复邮箱（选填）", msgLabel: "留言内容", msgPlaceholder: "请在此输入您的咨询或反馈信息...", captchaTitle: "防机器人动态浮动验证码", captchaPlaceholder: "输入6位浮动验证码", btn: "发送消息 (OK)", sending: "发送中...", success: "消息发送成功！", errorCaptcha: "验证码不正确。", errorLocked: "已锁定30秒。", errorActivate: "请检查邮箱以激活表单。", errorNet: "连接错误，请重试。" },
-      tr: { landingLabel: "İniş Terminali", subtitle: "Resmi Destek Portalı", badge: "Güvenli Sistem Bağlantısı", desc: "Mobil ve web uygulamalarımız için birleşik destek ve geri bildirim portalı.", emailLabel: "Yanıt için e-posta (isteğe bağlı)", msgLabel: "Mesaj", msgPlaceholder: "Sorunuzu veya mesajınızı buraya yazın...", captchaTitle: "Anti-Bot Hareketli Kod", captchaPlaceholder: "6 HANELİ KODU GİRİN", btn: "Mesaj Gönder (OK)", sending: "Gönderiliyor...", success: "Mesajınız başarıyla gönderildi!", errorCaptcha: "Güvenlik kodu hatalı.", errorLocked: "30 sn kilitlendi.", errorActivate: "Etkinleştirmek için e-postanızı kontrol edin.", errorNet: "Bağlantı hatası." },
-      el: { landingLabel: "Τερματικός Προσγείωσης", subtitle: "Επίσημη Πύλη Υποστήριξης", badge: "Ασφαλής σύνδεση συστήματος", desc: "Ενιαία πύλη υποστήριξης και σχολίων για τις εφαρμογές μας σε κινητά και ιστό.", emailLabel: "Email για απάντηση (προαιρετικό)", msgLabel: "Μήνυμα", msgPlaceholder: "Γράψτε το ερώτημα ή το μήνυμά σας εδώ...", captchaTitle: "Κινούμενος Κωδικός Ασφαλείας", captchaPlaceholder: "ΕΙΣΑΓΕΤΕ 6 ΧΑΡΑΚΤΗΡΕΣ", btn: "Αποστολή μηνύματος (OK)", sending: "Αποστολή...", success: "Το μήνυμα στάλθηκε επιτυχώς!", errorCaptcha: "Λάθος κωδικός ασφαλείας.", errorLocked: "Κλείδωμα 30δ.", errorActivate: "Ελέγξτε το email σας για ενεργοποίηση.", errorNet: "Σφάλμα σύνδεσης." },
-      ro: { landingLabel: "Aterizare la terminal", subtitle: "Portal Oficial de Suport", badge: "Conexiune securizată la sistem", desc: "Portal unificat de suport și feedback pentru aplicațiile noastre mobile și web.", emailLabel: "Email pentru răspuns (opțional)", msgLabel: "Mesaj", msgPlaceholder: "Scrieți întrebarea sau mesajul dvs. aici...", captchaTitle: "Cod Flotant Anti-Bot", captchaPlaceholder: "INTRODUCEȚI 6 CARACTERE", btn: "Trimite mesajul (OK)", sending: "Se trimite...", success: "Mesajul a fost trimis cu succes!", errorCaptcha: "Cod de securitate incorect.", errorLocked: "Blocat 30s.", errorActivate: "Verificați e-mailul pentru activare.", errorNet: "Eroare de conexiune." },
-      sr: { landingLabel: "Слетање на терминал", subtitle: "Званични портал за подршку", badge: "Сигурна веза са системом", desc: "Јединствена страница за подршку и повратне информације за наше мобилне и веб апликације.", emailLabel: "Имејл за одговор (опционо)", msgLabel: "Порука", msgPlaceholder: "Напишите ваш упит или поруку овде...", captchaTitle: "Плутајући анти-бот код", captchaPlaceholder: "УНЕСИТЕ 6 КАРАКТЕРА", btn: "Пошаљи поруку (ОК)", sending: "Слање...", success: "Порука је успешно послата!", errorCaptcha: "Погрешан сигурносни код.", errorLocked: "Сачекајте 30с.", errorActivate: "Проверите пошту за активацију.", errorNet: "Грешка у вези." }
+      en: { landingLabel: "Landing Terminal", subtitle: "Captain Titanium Neo Portal", badge: "Secure System Connection", desc: "Unified support and feedback portal for our mobile and web applications.", emailLabel: "Email for reply (optional)", msgLabel: "Message", msgPlaceholder: "Write your inquiry or message here...", captchaTitle: "Anti-Bot Floating Code", captchaPlaceholder: "ENTER 6-CHAR CODE", btn: "Send Message (OK)", sending: "Sending...", success: "Message sent successfully! Thank you.", errorCaptcha: "Incorrect floating security code.", errorLocked: "Locked for 30s due to failed attempts.", errorNet: "Submission failed. Please check your fields and try again." },
+      bg: { landingLabel: "Кацане в терминал", subtitle: "Официален портал за поддръжка", badge: "Сигурна връзка със системата", desc: "Единна страница за поддръжка и обратна връзка към нашите мобилни и уеб приложения.", emailLabel: "Имейл за обратна връзка (по желание)", msgLabel: "Съобщение", msgPlaceholder: "Напишете вашето запитване или сигнал тук...", captchaTitle: "Анти-спам плаващ код", captchaPlaceholder: "ВЪВЕДИ 6-ТЕ СИМВОЛА", btn: "Изпрати съобщение (ОК)", sending: "Изпращане...", success: "Съобщението е изпратено успешно! Благодарим ви.", errorCaptcha: "Грешен плаващ код за сигурност.", errorLocked: "Заключено за 30 сек. след грешни опити.", errorNet: "Грешка при изпращане. Проверете полетата и опитайте отново." },
+      de: { landingLabel: "Landung am Terminal", subtitle: "Offizielles Support-Portal", badge: "Sichere Systemverbindung", desc: "Zentrales Support- und Feedback-Portal für unsere mobilen und Web-Anwendungen.", emailLabel: "E-Mail für Antwort (optional)", msgLabel: "Nachricht", msgPlaceholder: "Schreiben Sie Ihre Anfrage oder Nachricht hier...", captchaTitle: "Anti-Bot Schwebecode", captchaPlaceholder: "6-STELLIGEN CODE EINGEBEN", btn: "Nachricht senden (OK)", sending: "Wird gesendet...", success: "Nachricht erfolgreich gesendet!", errorCaptcha: "Falscher Sicherheitscode.", errorLocked: "Für 30 Sek. gesperrt.", errorNet: "Senden fehlgeschlagen. Bitte erneut versuchen." },
+      fr: { landingLabel: "Atterrissage au terminal", subtitle: "Portail d'assistance officiel", badge: "Connexion système sécurisée", desc: "Portail unifié d'assistance et de commentaires pour nos applications mobiles et web.", emailLabel: "E-mail de réponse (facultatif)", msgLabel: "Message", msgPlaceholder: "Écrivez votre demande ou message ici...", captchaTitle: "Code flottant anti-bot", captchaPlaceholder: "ENTREZ LE CODE À 6 CAR.", btn: "Envoyer le message (OK)", sending: "Envoi en cours...", success: "Message envoyé avec succès !", errorCaptcha: "Code de sécurité incorrect.", errorLocked: "Verrouillé 30s.", errorNet: "Échec de l'envoi. Veuillez réessayer." },
+      es: { landingLabel: "Aterrizaje en terminal", subtitle: "Portal Oficial de Soporte", badge: "Conexión segura al sistema", desc: "Portal unificado de soporte y comentarios para nuestras aplicaciones móviles y web.", emailLabel: "Correo de respuesta (opcional)", msgLabel: "Mensaje", msgPlaceholder: "Escriba su consulta o mensaje aquí...", captchaTitle: "Código flotante anti-bots", captchaPlaceholder: "INGRESE CÓDIGO DE 6 CAR.", btn: "Enviar mensaje (OK)", sending: "Enviando...", success: "¡Mensaje enviado con éxito!", errorCaptcha: "Código de seguridad incorrecto.", errorLocked: "Bloqueado 30s.", errorNet: "Error al enviar. Inténtelo de nuevo." },
+      it: { landingLabel: "Atterraggio al terminal", subtitle: "Portale di Supporto Ufficiale", badge: "Connessione di sistema sicura", desc: "Portale unificato di supporto e feedback per le nostre applicazioni mobili e web.", emailLabel: "Email per la risposta (opzionale)", msgLabel: "Messaggio", msgPlaceholder: "Scrivi qui la tua richiesta o il tuo messaggio...", captchaTitle: "Codice fluttuante anti-bot", captchaPlaceholder: "INSERISCI CODICE 6 CAR.", btn: "Invia messaggio (OK)", sending: "Invio in corso...", success: "Messaggio inviato con successo!", errorCaptcha: "Codice di sicurezza errato.", errorLocked: "Bloccato per 30s.", errorNet: "Invio fallito. Riprova." },
+      pt: { landingLabel: "Aterragem no terminal", subtitle: "Portal Oficial de Suporte", badge: "Conexão segura com o sistema", desc: "Portal unificado de suporte e feedback para nossos aplicativos móveis e web.", emailLabel: "E-mail para resposta (opcional)", msgLabel: "Mensagem", msgPlaceholder: "Escreva sua dúvida ou mensagem aqui...", captchaTitle: "Código flutuante anti-bot", captchaPlaceholder: "DIGITE O CÓDIGO DE 6 CAR.", btn: "Enviar mensagem (OK)", sending: "Enviando...", success: "Mensagem enviada com sucesso!", errorCaptcha: "Código de segurança incorreto.", errorLocked: "Bloqueado por 30s.", errorNet: "Falha no envio. Tente novamente." },
+      ru: { landingLabel: "Посадка в терминале", subtitle: "Официальный портал поддержки", badge: "Безопасное соединение с системой", desc: "Единый портал поддержки и обратной связи для наших мобильных и веб-приложений.", emailLabel: "Email для ответа (необязательно)", msgLabel: "Сообщение", msgPlaceholder: "Напишите ваш запрос или сообщение здесь...", captchaTitle: "Плавающий анти-бот код", captchaPlaceholder: "ВВЕДИТЕ 6 СИМВОЛОВ", btn: "Отправить сообщение (ОК)", sending: "Отправка...", success: "Сообщение успешно отправлено!", errorCaptcha: "Неверный защитный код.", errorLocked: "Заблокировано на 30 сек.", errorNet: "Ошибка отправки. Попробуйте снова." },
+      uk: { landingLabel: "Посадка в терміналі", subtitle: "Офіційний портал підтримки", badge: "Безпечне з'єднання з системою", desc: "Єдиний портал підтримки та зворотного зв'язку для наших мобільних і веб-додатків.", emailLabel: "Email для відповіді (необов'язково)", msgLabel: "Повідомлення", msgPlaceholder: "Напишіть ваш запит або повідомлення тут...", captchaTitle: "Плаваючий анти-бот код", captchaPlaceholder: "ВВЕДІТЬ 6 СИМВОЛІВ", btn: "Надіслати повідомлення (ОК)", sending: "Надсилання...", success: "Повідомлення успішно надіслано!", errorCaptcha: "Невірний захисний код.", errorLocked: "Заблоковано на 30 сек.", errorNet: "Помилка надсилання. Спробуйте ще раз." },
+      ko: { landingLabel: "착륙 터미널", subtitle: "공식 지원 포털", badge: "안전한 시스템 연결", desc: "모바일 및 웹 애플리케이션을 위한 통합 지원 및 피드백 포털입니다.", emailLabel: "회신받을 이메일 (선택 사항)", msgLabel: "메시지", msgPlaceholder: "문의 사항이나 메시지를 여기에 작성해 주세요...", captchaTitle: "스팸 방지 플로팅 코드", captchaPlaceholder: "6자리 보안 코드 입력", btn: "메시지 보내기 (OK)", sending: "전송 중...", success: "메시지가 성공적으로 전송되었습니다!", errorCaptcha: "보안 코드가 일치하지 않습니다.", errorLocked: "30초 후 다시 시도하세요.", errorNet: "전송에 실패했습니다. 다시 시도해 주세요." },
+      ja: { landingLabel: "着陸ターミナル", subtitle: "公式サポートポータル", badge: "安全なシステム接続", desc: "モバイルおよびWebアプリケーション向けの統合サポート・フィードバックポータルです。", emailLabel: "返信先メールアドレス（任意）", msgLabel: "メッセージ", msgPlaceholder: "お問い合わせ内容をこちらにご記入ください...", captchaTitle: "ボット対策フローティングコード", captchaPlaceholder: "6桁のコードを入力", btn: "メッセージを送信 (OK)", sending: "送信中...", success: "メッセージが正常に送信されました。", errorCaptcha: "セキュリティコードが正しくありません。", errorLocked: "30秒お待ちください。", errorNet: "送信に失敗しました。もう一度お試しください。" },
+      zh: { landingLabel: "降落航站楼", subtitle: "官方支持门户", badge: "安全系统连接", desc: "我们移动和网络应用程序的统一支持与反馈门户。", emailLabel: "回复邮箱（选填）", msgLabel: "留言内容", msgPlaceholder: "请在此输入您的咨询或反馈信息...", captchaTitle: "防机器人动态浮动验证码", captchaPlaceholder: "输入6位浮动验证码", btn: "发送消息 (OK)", sending: "发送中...", success: "消息发送成功！", errorCaptcha: "验证码不正确。", errorLocked: "已锁定30秒。", errorNet: "发送失败，请重试。" },
+      tr: { landingLabel: "İniş Terminali", subtitle: "Resmi Destek Portalı", badge: "Güvenli Sistem Bağlantısı", desc: "Mobil ve web uygulamalarımız için birleşik destek ve geri bildirim portalı.", emailLabel: "Yanıt için e-posta (isteğe bağlı)", msgLabel: "Mesaj", msgPlaceholder: "Sorunuzu veya mesajınızı buraya yazın...", captchaTitle: "Anti-Bot Hareketli Kod", captchaPlaceholder: "6 HANELİ KODU GİRİN", btn: "Mesaj Gönder (OK)", sending: "Gönderiliyor...", success: "Mesajınız başarıyla gönderildi!", errorCaptcha: "Güvenlik kodu hatalı.", errorLocked: "30 sn kilitlendi.", errorNet: "Gönderim başarısız. Lütfen tekrar deneyin." },
+      el: { landingLabel: "Τερματικός Προσγείωσης", subtitle: "Επίσημη Πύλη Υποστήριξης", badge: "Ασφαλής σύνδεση συστήματος", desc: "Ενιαία πύλη υποστήριξης και σχολίων για τις εφαρμογές μας σε κινητά και ιστό.", emailLabel: "Email για απάντηση (προαιρετικό)", msgLabel: "Μήνυμα", msgPlaceholder: "Γράψτε το ερώτημα ή το μήνυμά σας εδώ...", captchaTitle: "Κινούμενος Κωδικός Ασφαλείας", captchaPlaceholder: "ΕΙΣΑΓΕΤΕ 6 ΧΑΡΑΚΤΗΡΕΣ", btn: "Αποστολή μηνύματος (OK)", sending: "Αποστολή...", success: "Το μήνυμα στάλθηκε επιτυχώς!", errorCaptcha: "Λάθος κωδικός ασφαλείας.", errorLocked: "Κλείδωμα 30δ.", errorNet: "Αποτυχία αποστολής. Προσπαθήστε ξανά." },
+      ro: { landingLabel: "Aterizare la terminal", subtitle: "Portal Oficial de Suport", badge: "Conexiune securizată la sistem", desc: "Portal unificat de suport și feedback pentru aplicațiile noastre mobile și web.", emailLabel: "Email pentru răspuns (opțional)", msgLabel: "Mesaj", msgPlaceholder: "Scrieți întrebarea sau mesajul dvs. aici...", captchaTitle: "Cod Flotant Anti-Bot", captchaPlaceholder: "INTRODUCEȚI 6 CARACTERE", btn: "Trimite mesajul (OK)", sending: "Se trimite...", success: "Mesajul a fost trimis cu succes!", errorCaptcha: "Cod de securitate incorect.", errorLocked: "Blocat 30s.", errorNet: "Trimiterea a eșuat. Încercați din nou." },
+      sr: { landingLabel: "Слетање на терминал", subtitle: "Званични портал за подршку", badge: "Сигурна веза са системом", desc: "Јединствена страница за подршку и повратне информације за наше мобилне и веб апликације.", emailLabel: "Имејл за одговор (опционо)", msgLabel: "Порука", msgPlaceholder: "Напишите ваш упит или поруку овде...", captchaTitle: "Плутајући анти-бот код", captchaPlaceholder: "УНЕСИТЕ 6 КАРАКТЕРА", btn: "Пошаљи поруку (ОК)", sending: "Слање...", success: "Порука је успешно послата!", errorCaptcha: "Погрешан сигурносни код.", errorLocked: "Сачекајте 30с.", errorNet: "Слање није успело. Покушајте поново." }
     };
 
     const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'ps', 'ku', 'dv'];
@@ -795,7 +793,7 @@
 
       try {
         const base = uiDict.en;
-        const keys = ['landingLabel', 'subtitle', 'badge', 'desc', 'emailLabel', 'msgLabel', 'msgPlaceholder', 'captchaTitle', 'captchaPlaceholder', 'btn', 'sending', 'success', 'errorCaptcha', 'errorActivate', 'errorNet'];
+        const keys = ['landingLabel', 'subtitle', 'badge', 'desc', 'emailLabel', 'msgLabel', 'msgPlaceholder', 'captchaTitle', 'captchaPlaceholder', 'btn', 'sending', 'success', 'errorCaptcha', 'errorNet'];
         const sep = " ||| ";
         const query = keys.map(k => base[k]).join(sep);
         const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(code)}&dt=t&q=${encodeURIComponent(query)}`);
@@ -856,11 +854,6 @@
     let timeLeft = 60;
     let failedAttempts = 0;
     let lockedUntil = 0;
-    let humanInteracted = false;
-
-    window.addEventListener('pointermove', () => { humanInteracted = true; }, { once: true });
-    window.addEventListener('touchstart', () => { humanInteracted = true; }, { once: true });
-    window.addEventListener('keydown', () => { humanInteracted = true; }, { once: true });
 
     function generateChallenge() {
       if (Date.now() < lockedUntil) return;
@@ -1028,48 +1021,43 @@
     generateChallenge();
     requestAnimationFrame(renderFloatingCaptcha);
 
-    function computeProofOfWork(seed) {
-      let nonce = 0;
-      while (nonce < 250000) {
-        let hash = 2166136261;
-        const str = seed + ":" + nonce;
-        for (let i = 0; i < str.length; i++) {
-          hash ^= str.charCodeAt(i);
-          hash = Math.imul(hash, 16777619);
-        }
-        if ((hash & 0xfff) === 0x777) return nonce;
-        nonce++;
-      }
-      return nonce;
-    }
-
+    // ============================================================================
+    // ОФИЦИАЛНА FORMSPREE ИНТЕГРАЦИЯ (https://formspree.io/f/xkjjaney)
+    // ============================================================================
     const form = document.getElementById('contactForm');
     const statusMessage = document.getElementById('statusMessage');
-    const _target = [105,98,97,110,101,118,64,103,109,97,105,108,46,99,111,109].map(c => String.fromCharCode(c)).join('');
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const honey = document.getElementById('honeyField').value;
       const enteredCode = captchaInput.value.trim().toUpperCase();
+      const msgVal = document.getElementById('message').value.trim();
 
-      if (honey || !humanInteracted || Date.now() < lockedUntil || enteredCode !== activeCode) {
+      if (honey || Date.now() < lockedUntil || enteredCode !== activeCode || !msgVal) {
         statusMessage.textContent = currentStrings.errorCaptcha;
         statusMessage.className = 'status-msg error';
         generateChallenge();
         return;
       }
 
+      // Ако потребителят е оставил имейла празен или невалиден, не спираме съобщението
+      const senderInput = document.getElementById('sender');
+      const rawEmail = senderInput.value.trim();
+      const formData = new FormData();
+      if (rawEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
+        formData.append('email', rawEmail);
+      } else if (rawEmail) {
+        formData.append('contact_info', rawEmail);
+      }
+      formData.append('message', msgVal);
+
       submitBtn.disabled = true;
       submitBtn.textContent = currentStrings.sending;
       statusMessage.className = 'status-msg';
 
-      const powNonce = computeProofOfWork(activeCode);
-      const formData = new FormData(form);
-      formData.append('_security_pow', powNonce);
-
       try {
-        const response = await fetch('https://formsubmit.co/ajax/' + _target, {
+        const response = await fetch('https://formspree.io/f/xkjjaney', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: formData
@@ -1081,14 +1069,13 @@
           form.reset();
           generateChallenge();
         } else {
-          statusMessage.textContent = currentStrings.errorActivate;
+          statusMessage.textContent = currentStrings.errorNet;
           statusMessage.className = 'status-msg error';
           generateChallenge();
         }
       } catch (err) {
-        statusMessage.textContent = currentStrings.errorNet;
-        statusMessage.className = 'status-msg error';
-        generateChallenge();
+        // Резервен класически POST при блокиран fetch
+        form.submit();
       } finally {
         submitBtn.textContent = currentStrings.btn;
       }
