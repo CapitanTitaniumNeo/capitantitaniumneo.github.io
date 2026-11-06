@@ -1,6 +1,6 @@
-# Capitan Titanium
+# Captain Titanium
 
-Official developer page of **Ivan Alexandrov Banev** (**Capitan Titanium**).
+Official developer portal of **Captain Titanium** (`Captain Titanium Neo`).
 
-* **Contact:** [ibanev@gmail.com](mailto:ibanev@gmail.com)
-* **Authorized Digital Sellers:** [app-ads.txt](https://capitantitaniumneo.github.io/app-ads.txt)
+* **Support Portal:** [https://capitantitaniumneo.github.io/](https://capitantitaniumneo.github.io/)
+* **Authorized Digital Sellers:** [app-ads.txt](app-ads.txt)
