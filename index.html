@@ -1,31 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capitan Titanium</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1966281286044001" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Официален портал | Сигурност и Приложения</title>
   <style>
-    body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #0b0f19; color: #e2e8f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; box-sizing: border-box; }
-    .card { max-width: 480px; width: 100%; background: #111827; border: 1px solid #1f2937; border-radius: 16px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-    h1 { margin: 0 0 8px; font-size: 22px; color: #ffffff; font-weight: 600; }
-    p { margin: 0 0 16px; font-size: 14px; color: #94a3b8; line-height: 1.6; }
-    .divider { height: 1px; background: #1f2937; margin: 20px 0; }
-    .meta { font-size: 13px; color: #64748b; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    :root {
+      /* Цветова палитра - синхронизирана с приложението */
+      --bg-main: #0b0f19;
+      --bg-card: #131b2e;
+      --border-color: #1f2d4a;
+      --accent: #00e5ff;
+      --accent-hover: #00b8d4;
+      --text-primary: #f0f4f8;
+      --text-secondary: #8b9bb4;
+      --success: #00e676;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      max-width: 480px;
+      width: 100%;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Векторно лого - синхронизирано с иконата в приложението */
+    .logo-wrapper {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+    }
+
+    .logo-wrapper svg {
+      width: 42px;
+      height: 42px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 230, 118, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+    }
+
+    p.subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    /* Форма за обратна връзка */
+    .contact-form {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-submit {
+      background-color: var(--accent);
+      color: #050811;
+      border: none;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 6px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    .divider {
+      margin: 22px 0;
+      border: none;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .github-link {
+      display: inline-block;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .github-link:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Capitan Titanium</h1>
-    <p>Official developer page of <strong>Ivan Alexandrov Banev</strong>.</p>
-    <div class="divider"></div>
-    <p><strong>Privacy Policy:</strong> Applications developed by Capitan Titanium process data locally on the user's device and do not collect, store, or share personal or biometric data. Family-safe advertisements are served via Google AdMob.</p>
-    <div class="divider"></div>
-    <div class="meta">
-      Contact: <a href="mailto:ibanev@gmail.com">ibanev@gmail.com</a> &middot; <a href="/app-ads.txt">app-ads.txt</a>
+
+  <div class="container">
+    <!-- Лого (идентично с графичния стил на приложението) -->
+    <div class="logo-wrapper">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
     </div>
+
+    <h1>Официален портал за поддръжка</h1>
+
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Сигурна връзка със системата
+    </div>
+
+    <p class="subtitle">
+      Единна страница за поддръжка и обратна връзка към нашите мобилни и уеб приложения.
+    </p>
+
+    <!-- Секция Свържи се с мен -->
+    <form class="contact-form" action="https://formspree.io/f/ТВОЯТ_КОД_ТУК" method="POST">
+      <div>
+        <label for="sender">Имейл за обратна връзка (по желание)</label>
+        <input type="email" id="sender" name="email" placeholder="example@mail.com">
+      </div>
+
+      <div>
+        <label for="message">Съобщение</label>
+        <textarea id="message" name="message" placeholder="Напишете вашето запитване или сигнал тук..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Изпрати съобщение (ОК)</button>
+    </form>
+
+    <hr class="divider">
+
+    <!-- Директен вариант през GitHub (праща директно до вложения в GitHub имейл) -->
+    <a class="github-link" href="https://github.com/ТВОЯТ_ПРОФИЛ/ТВОЕТО_ХРАНИЛИЩЕ/issues/new" target="_blank" rel="noopener">
+      Или изпрати директно съобщение през GitHub системата ➔
+    </a>
   </div>
+
 </body>
 </html>
